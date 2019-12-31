@@ -1,6 +1,6 @@
 {
   "docs": {
-    "OnBoarding": ["OnBoarding"]
+    "OnBoarding": ["OnBoarding", "ortb-fields"]
   },
   "docs-other": {
     "First Category": [""]
