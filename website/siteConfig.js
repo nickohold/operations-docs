@@ -23,18 +23,20 @@ const users = [
 const siteConfig = {
   title: 'Operations Documentation Site', // Title for your website.
   tagline: 'Testing Nick',
-  url: 'https://NICK.com', // Your website URL
-  baseUrl: '/', // Base URL for your project */
+  // url: 'http://sdk.streamrail.com/operations/ops-site/', // Your website URL
+  // baseUrl: 'http://sdk.streamrail.com/operations/ops-site/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
-  //   baseUrl: '/test-site/',
+    // baseUrl: '/',
 
   // Used for publishing and more
-  projectName: 'test-site',
-  organizationName: 'Ironsource',
+  projectName: 'ops-docs',
+  // organizationName: 'Ironsource',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
-  //   organizationName: 'JoelMarcey'
+   organizationName: 'nickohold',
+   url:"https://nickohold.github.io",
+   baseUrl:"/docusaurus/",
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
