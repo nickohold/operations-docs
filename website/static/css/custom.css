@@ -7,6 +7,38 @@
  
 /* your custom css */
 
+#footer-image{
+    max-width: 300%;
+    width: 300px;
+    padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 90%;
+}
+
+#contact_us{
+    display: block;
+    text-align:center;
+    color: whitesmoke;
+    opacity: 80%;
+}
+
+.mainContainer{
+padding-top:0; 
+}
+
+.container.paddingTop{
+    padding-top:0;
+}
+
+.imageAlignTop .blockImage{
+    max-width: 1000px;
+    width: 500px;
+    /* background: black */
+    /* height: 100%; */
+}
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 
@@ -14,7 +46,7 @@
 }
 
 @media only screen and (max-width: 1023px) {
-}
+}   
 
 @media only screen and (min-width: 1400px) {
 }

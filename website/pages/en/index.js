@@ -45,7 +45,17 @@ class HomeSplash extends React.Component {
     const PromoSection = props => (
       <div className="section promoSection">
         <div className="promoRow">
-          <div className="pluginRowBlock">{props.children}</div>
+          <div className="intro">{props.children}
+          <p>
+            Welcome to the new Ironsource OnBoarding and Operations teams documentation site!
+            <br />
+            We are working hard on adding useful information to assist with the onboarding process.
+            <br />
+            In the meantime, feel free to check out our <a href={docUrl('OnBoarding.html')}>OnBoarding</a> documentation.
+
+          </p>
+          
+          </div>
         </div>
       </div>
     );
@@ -60,15 +70,15 @@ class HomeSplash extends React.Component {
 
     return (
       <SplashContainer>
-        <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} />
+        {/* {/* <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} /> */}
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href="#try">Try It Out</Button>
+            {/* <Button href="#try">Try It Out</Button>
             <Button href={docUrl('doc1.html')}>Example Link</Button>
-            <Button href={docUrl('doc2.html')}>Example Link 2</Button>
+            <Button href={docUrl('doc2.html')}>Example Link 2</Button> */}
           </PromoSection>
-        </div>
+        </div> 
       </SplashContainer>
     );
   }
@@ -93,25 +103,26 @@ class Index extends React.Component {
     );
 
     const FeatureCallout = () => (
-      <div
-        className="productShowcaseSection paddingBottom"
-        style={{textAlign: 'center'}}>
-        <h2>Feature Callout</h2>
-        <MarkdownBlock>These are features of this project</MarkdownBlock>
+      <div>
       </div>
     );
+    // className="productShowcaseSection paddingBottom"
+    // style={{textAlign: 'center'}}>
+    // <h2>Feature Callout</h2>
+    // <MarkdownBlock>These are features of this project</MarkdownBlock>
+
 
     const TryOut = () => (
       <Block id="try">
         {[
           {
-            content:
-              'To make your landing page more attractive, use illustrations! Check out ' +
-              '[**unDraw**](https://undraw.co/) which provides you with customizable illustrations which are free to use. ' +
-              'The illustrations you see on this page are from unDraw.',
-            image: `${baseUrl}img/undraw_code_review.svg`,
-            imageAlign: 'left',
-            title: 'Wonderful SVG Illustrations',
+            // content:
+            //   'To make your landing page more attractive, use illustrations! Check out ' +
+            //   '[**unDraw**](https://undraw.co/) which provides you with customizable illustrations which are free to use. ' +
+            //   'The illustrations you see on this page are from unDraw.',
+            // image: `${baseUrl}img/undraw_code_review.svg`,
+            // imageAlign: 'left',
+            // title: 'Wonderful SVG Illustrations',
           },
         ]}
       </Block>
@@ -124,7 +135,7 @@ class Index extends React.Component {
             content:
               'This is another description of how this project is useful',
             image: `${baseUrl}img/undraw_note_list.svg`,
-            imageAlign: 'right',
+            imageAlign: 'center',
             title: 'Description',
           },
         ]}
@@ -149,17 +160,17 @@ class Index extends React.Component {
       <Block layout="fourColumn">
         {[
           {
-            content: 'This is the content of my feature',
-            image: `${baseUrl}img/undraw_react.svg`,
-            imageAlign: 'top',
-            title: 'Feature One',
+            content: '',
+            image: `${baseUrl}img/undraw_onboarding_o8mv.svg`,
+            imageAlign: 'bottom',
+            title: '',
           },
-          {
-            content: 'The content of my second feature',
-            image: `${baseUrl}img/undraw_operating_system.svg`,
-            imageAlign: 'top',
-            title: 'Feature Two',
-          },
+          // {
+          //   content: 'The content of my second feature',
+          //   image: `${baseUrl}img/undraw_operating_system.svg`,
+          //   imageAlign: 'top',
+          //   title: 'Feature Two',
+          // },
         ]}
       </Block>
     );
@@ -198,11 +209,7 @@ class Index extends React.Component {
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
           <Features />
-          <FeatureCallout />
-          <LearnHow />
-          <TryOut />
-          <Description />
-          <Showcase />
+          {/* <Showcase /> */}
         </div>
       </div>
     );

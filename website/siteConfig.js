@@ -11,23 +11,23 @@
 // List of projects/orgs using your project for the users page.
 const users = [
   {
-    caption: 'User1',
+    caption: 'IronSource',
     // You will need to prepend the image path with your baseUrl
     // if it is not '/', like: '/test-site/img/image.jpg'.
-    image: '/img/undraw_open_source.svg',
-    infoLink: 'https://www.facebook.com',
+    image: '/sdk.streamrail.com/logos/is-video-white.png',
+    infoLink: 'https://www.ironsrc.com/',
     pinned: true,
   },
 ];
 
 const siteConfig = {
   title: 'Operations Documentation Site', // Title for your website.
-  tagline: 'Testing Nick',
+  tagline: '',
   // url: 'http://sdk.streamrail.com/operations/ops-site/', // Your website URL
   // baseUrl: 'http://sdk.streamrail.com/operations/ops-site/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
-    // baseUrl: '/',
+    baseUrl: '/',
 
   // Used for publishing and more
   projectName: 'ops-docs',
@@ -35,18 +35,18 @@ const siteConfig = {
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
    organizationName: 'nickohold',
-   url:"https://nickohold.github.io",
-   baseUrl:"/docusaurus/",
+   url:"https://nickohold.github.io/",
+  //  baseUrl:"/ops-docs/",
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     {doc: 'OnBoarding',label:'Docs'},
-    {blog: true, label: 'Blog'},
+    // {blog: true, label: 'Blog'},
     {href:'https://connect.ironsrc.com/api-docs', label: 'Connect API', external: true},
   ],
 
   // If you have users set above, you add it here:
-  users,
+  // users,
 
  
   /* path to images for header/footer */
@@ -59,7 +59,10 @@ const siteConfig = {
     primaryColor: '#260c89',
     secondaryColor: '#a3a3a3',
   },
-
+  scrollToTop: true,
+  scrollToTopOptions: {
+    zIndex: 100,
+  },
   /* Custom fonts for website */
   /*
   fonts: {
