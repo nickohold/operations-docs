@@ -27,7 +27,7 @@ const siteConfig = {
   // baseUrl: 'http://sdk.streamrail.com/operations/ops-site/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
-    baseUrl: '/',
+    // baseUrl: '/',
 
   // Used for publishing and more
   projectName: 'ops-docs',
@@ -36,7 +36,7 @@ const siteConfig = {
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
    organizationName: 'nickohold',
    url:"https://nickohold.github.io/",
-  //  baseUrl:"/ops-docs/",
+   baseUrl:"/ops-docs/",
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
