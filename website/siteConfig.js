@@ -36,7 +36,7 @@ const siteConfig = {
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
    organizationName: 'nickohold',
    url:"https://nickohold.github.io/",
-   baseUrl:"/",
+   baseUrl:"/ops-docs/",
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [

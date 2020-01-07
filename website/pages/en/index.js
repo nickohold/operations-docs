@@ -47,7 +47,7 @@ class HomeSplash extends React.Component {
         <div className="promoRow">
           <div className="intro">{props.children}
           <p>
-            Welcome to the new Ironsource OnBoarding and Operations teams documentation site!
+            Welcome to the new Ironsource OnBoarding and Operations team documentation site!
             <br />
             We are working hard on adding useful information to assist with the onboarding process.
             <br />
