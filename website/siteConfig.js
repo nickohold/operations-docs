@@ -14,7 +14,7 @@ const users = [
     caption: 'IronSource',
     // You will need to prepend the image path with your baseUrl
     // if it is not '/', like: '/test-site/img/image.jpg'.
-    image: '/sdk.streamrail.com/logos/is-video-white.png',
+    image: 'img/is-video-white.png',
     infoLink: 'https://www.ironsrc.com/',
     pinned: true,
   },
@@ -50,9 +50,9 @@ const siteConfig = {
 
  
   /* path to images for header/footer */
-  headerIcon: '/img/is-video-white.png',
-  footerIcon: '/img/is-video-white.png',
-  favicon: '/img/favicon.png',
+  headerIcon: 'img/is-video-white.png',
+  footerIcon: 'img/is-video-white.png',
+  favicon: 'img/favicon.png',
 
   /* Colors for website */
   colors: {
