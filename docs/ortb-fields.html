@@ -1,0 +1,518 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>IronSource ORTB request/response fields · Operations Documentation Site</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## BidRequest"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="IronSource ORTB request/response fields · Operations Documentation Site"/><meta property="og:type" content="website"/><meta property="og:url" content="https://nickohold.github.io//ops-docs/"/><meta property="og:description" content="## BidRequest"/><meta property="og:image" content="https://nickohold.github.io//ops-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://nickohold.github.io//ops-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/ops-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/ops-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/ops-docs/css/main.css"/><script src="/ops-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/ops-docs/"><img class="logo" src="/ops-docs/img/is-video-white.png" alt="Operations Documentation Site"/><h2 class="headerTitleWithLogo">Operations Documentation Site</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/ops-docs/docs/OnBoarding" target="_self">Docs</a></li><li class=""><a href="https://connect.ironsrc.com/api-docs" target="_blank">Connect API</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>OnBoarding</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">OnBoarding<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/ops-docs/docs/OnBoarding">Onboarding Process</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/ops-docs/docs/ortb-fields">IronSource ORTB request/response fields</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">IronSource ORTB request/response fields</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="bidrequest"></a><a href="#bidrequest" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>BidRequest</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>BidRequest</td><td>id</td><td>2.0</td><td>Unique ID of the bid request, provided by the exchange.</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>imp</td><td>2.0</td><td>Array of Imp objects representing the impressions offered. (1 Imp object min.)</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>site</td><td>2.0</td><td>Details via a Site object about the publisher’s website</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>app</td><td>2.0</td><td>Details via an App object about the publisher’s app</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>device</td><td>2.0</td><td>Details via a Device object about the user’s device where impression will be delivered.</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>user</td><td>2.0</td><td>Details via a User object about the human user of the device; the advertising audience.</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>test</td><td>2.3</td><td>Indicator of test mode in which auctions are not billable[0 = live mode, 1 = test mode]</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>tmax</td><td>2.0</td><td>Max time in milliseconds the exchange allows for bids to be received including Internet latency to avoid timeout. This value supersedes any a priori guidance from the exchange.</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>wseat</td><td>2.0</td><td>White list of buyer seats (e.g., advertisers, agencies) allowed to bid on impression. IDs of seats and knowledge of the buyer’s customers to which they refer must be coordinated between bidders and the exchange a priori. At most, only one of wseat and bseat should be used in the same request. Omission of both implies no seat restrictions.</td><td>No</td></tr>
+<tr><td>BidRequest</td><td>bseat</td><td>2.5</td><td>Block list of buyer seats (e.g., advertisers, agencies) restricted from bidding on this impression. Guidelines same as wseat above</td><td>No</td></tr>
+<tr><td>BidRequest</td><td>allimps</td><td>2.0</td><td>Flag to indicate if Exchange can verify that the impressions offered represent all of the impressions available in context (e.g., all on the web page, all video spots such as pre/mid/post roll) to support road-blocking. 0 = no or unknown, 1 = yes, the impressions offered represent all that are available.</td><td></td></tr>
+<tr><td>BidRequest</td><td>cur</td><td>2.0</td><td>Array of allowed currencies for bids on this bid request using ISO-4217 alpha codes. (Use if the exchange accepts multiple currencies)</td><td></td></tr>
+<tr><td>BidRequest</td><td>wlang</td><td>2.5</td><td>White list of languages for creatives using ISO-639-1-alpha-2. Omission implies no specific restrictions, but buyers would be advised to consider language attribute in the Device and/or Content objects if available.</td><td></td></tr>
+<tr><td>BidRequest</td><td>bcat</td><td>2.0</td><td>Blocked advertiser categories using the IAB content categories.</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>badv</td><td>2.0</td><td>Block list of advertisers by their domains (e.g., “ford.com”).</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>bapp</td><td>2.5</td><td>Block list of applications by their platform-specific exchange independent application identifiers. [Android = bundle or package names (e.g., com.foo.mygame)][ iOS= numeric IDs]</td><td></td></tr>
+<tr><td>BidRequest</td><td>source</td><td>2.5</td><td>A source object that provides data about the inventory source and which entity makes the final decision.</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>regs</td><td>2.2</td><td>A regs object that specifies any industry, legal, or governmental regulations in force for this request.</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>ext</td><td>2.0</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>ext &gt; schain</td><td>2.0</td><td>OpenRTB SupplyChain object</td><td>Yes</td></tr>
+<tr><td>BidRequest</td><td>ext &gt; pchain</td><td>2.0</td><td>Payment ID chain string containing embedded syntax described in the TAG Payment ID Protocol v1.0.</td><td>No</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="source"></a><a href="#source" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Source</td><td>fd</td><td>2.5</td><td>Entity responsible for the final impression sale decision [0 = exchange, 1 = upstream source]</td><td>No</td></tr>
+<tr><td>Source</td><td>tid</td><td>2.5</td><td>Transaction ID that must be common across all participants in this bid request (e.g., potentially multiple exchanges).</td><td>No</td></tr>
+<tr><td>Source</td><td>pchain</td><td>2.5</td><td>Payment ID chain string containing embedded syntax described in the TAG Payment ID Protocol v1.0.</td><td>Yes</td></tr>
+<tr><td>Source</td><td>ext</td><td>2.5</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="regs"></a><a href="#regs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Regs</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Regs</td><td>coppa</td><td>2.3</td><td>Flag indicating if this request is subject to the COPPA regulations established by the USA FTC [0 = no, 1 = yes]</td><td>No</td></tr>
+<tr><td>Regs</td><td>ext</td><td>2.3</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>Yes</td></tr>
+<tr><td>Regs</td><td>ext &gt; gdpr</td><td>2.3</td><td>Flag indicating whether or not this request falls under GDPR, where 0 = no, 1 = yes.</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="imp"></a><a href="#imp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Imp</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Imp</td><td>id</td><td>2.0</td><td>A unique identifier for this impression within the context of the bid request (typically, starts with 1 and increments)</td><td>Yes</td></tr>
+<tr><td>Imp</td><td>metric</td><td>2.5</td><td>An array of Metric object</td><td>No</td></tr>
+<tr><td>Imp</td><td>banner</td><td>2.0</td><td>A Banner object required if this impression is offered as a banner ad opportunity</td><td>Yes</td></tr>
+<tr><td>Imp</td><td>video</td><td>2.0</td><td>A Video object required if this impression is offered as a video ad opportunity.</td><td>Yes</td></tr>
+<tr><td>Imp</td><td>audio</td><td>2.4</td><td>An Audio object required if this impression is offered as an audio ad opportunity.</td><td>No</td></tr>
+<tr><td>Imp</td><td>native</td><td>2.3</td><td>A Native object required if this impression is offered as a native ad opportunity.</td><td>No</td></tr>
+<tr><td>Imp</td><td>pmp</td><td>2.2</td><td>A Pmp object containing any private marketplace deals in effect for this impression.</td><td>Yes</td></tr>
+<tr><td>Imp</td><td>displaymanager</td><td>2.0</td><td>Name of ad mediation partner, SDK technology, or player responsible for rendering ad (typically video or mobile). Used by some ad servers to customize ad code by partner. Recommended for video and/or apps.</td><td>No</td></tr>
+<tr><td>Imp</td><td>displaymanagerver</td><td>2.0</td><td>Version of ad mediation partner, SDK technology, or player responsible for rendering ad (typically video or mobile). Used by some ad servers to customize ad code</td><td>No</td></tr>
+<tr><td>Imp</td><td>instl</td><td>2.0</td><td>1 = the ad is interstitial or full screen, 0 = not interstitial.</td><td>Yes</td></tr>
+<tr><td>Imp</td><td>tagid</td><td>2.0</td><td>Identifier for specific ad placement or ad tag that was used to initiate the auction [ Useful for debugging or optimization for buyer]</td><td>No</td></tr>
+<tr><td>Imp</td><td>bidfloor</td><td>2.0</td><td>Minimum bid for this impression expressed in CPM.</td><td>Yes</td></tr>
+<tr><td>Imp</td><td>bidfloorcur</td><td>2.0</td><td>Currency specified using ISO-4217 alpha codes. This may be different from bid currency returned by bidder if this is allowed by the exchange.</td><td>Yes</td></tr>
+<tr><td>Imp</td><td>clickbrowser</td><td>2.4</td><td>Indicates the browser type opened upon clicking the creative in an app [0 = embedded, 1 = native] [Safari View Controller in iOS 9.x devices is considered a native browser here]</td><td>No</td></tr>
+<tr><td>Imp</td><td>secure</td><td>2.2</td><td>Flag to indicate if the impression requires secure HTTPS URL creative assets and markup [0 = non-secure, 1 = secure] If omitted, the secure state is unknown, but non-secure HTTP support can be assumed.</td><td>Yes</td></tr>
+<tr><td>Imp</td><td>iframebuster</td><td>2.0</td><td>Array of exchange-specific names of supported iframe busters.</td><td>No</td></tr>
+<tr><td>Imp</td><td>exp</td><td>2.4</td><td>Advisory as to the number of seconds that may elapse between the auction and the actual impression.</td><td>No</td></tr>
+<tr><td>Imp</td><td>ext</td><td>2.0</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="metric"></a><a href="#metric" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Metric</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Metric</td><td>type</td><td>2.5</td><td>Metric being presented using exchange curated string names which should be published to bidders a priori.</td><td>No</td></tr>
+<tr><td>Metric</td><td>value</td><td>2.5</td><td>Number representing the value of the metric. Probabilities must be in the range 0.0 – 1.0.</td><td>No</td></tr>
+<tr><td>Metric</td><td>vendor</td><td>2.5</td><td>Source of the value using exchange curated string names which should be published to bidders a priori. If the exchange itself is the source versus a third party, “EXCHANGE” is recommended.</td><td>No</td></tr>
+<tr><td>Metric</td><td>ext</td><td>2.5</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>No</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="banner"></a><a href="#banner" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Banner</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Banner</td><td>format</td><td>2.4</td><td>Array of format objects representing banner sizes permitted. If none specified, then use h and w attributes</td><td></td></tr>
+<tr><td>Banner</td><td>w</td><td>2.0</td><td>Exact width in device independent pixels (DIPS); recommended if no format objects are specified.</td><td>Yes</td></tr>
+<tr><td>Banner</td><td>h</td><td>2.0</td><td>Exact height in device independent pixels (DIPS); recommended if no format objects are specified.</td><td>Yes</td></tr>
+<tr><td>Banner</td><td>wmax</td><td>2.2</td><td>NOTE: Deprecated in favor of the format array. Max width in device independent pixels (DIPS).</td><td>No</td></tr>
+<tr><td>Banner</td><td>hmax</td><td>2.2</td><td>NOTE: Deprecated in favor of the format array. Max height in device independent pixels (DIPS)</td><td>No</td></tr>
+<tr><td>Banner</td><td>wmin</td><td>2.2</td><td>NOTE: Deprecated in favor of the format array. Min width in device independent pixels (DIPS).</td><td>No</td></tr>
+<tr><td>Banner</td><td>hmin</td><td>2.2</td><td>NOTE: Deprecated in favor of the format array. Min height in device independent pixels (DIPS).</td><td>No</td></tr>
+<tr><td>Banner</td><td>btype</td><td>2.0</td><td>Blocked banner ad types.</td><td>Yes</td></tr>
+<tr><td>Banner</td><td>battr</td><td>2.0</td><td>Blocked creative attributes.</td><td>Yes</td></tr>
+<tr><td>Banner</td><td>pos</td><td>2.0</td><td>Ad position on screen.</td><td>Yes</td></tr>
+<tr><td>Banner</td><td>mimes</td><td>2.0</td><td>Content MIME types supported. Popular MIME types may include “application/x-shockwave-flash”, “image/jpg”, and “image/gif”</td><td>Yes</td></tr>
+<tr><td>Banner</td><td>topframe</td><td>2.0</td><td>Indicates if the banner is in the top frame as opposed to an iframe [where 0 = no, 1 = yes]</td><td>No</td></tr>
+<tr><td>Banner</td><td>expdir</td><td>2.0</td><td>Directions in which the banner may expand.</td><td>No</td></tr>
+<tr><td>Banner</td><td>api</td><td>2.0</td><td>List of supported API frameworks for this impression. Not listed = Not supported</td><td>Yes</td></tr>
+<tr><td>Banner</td><td>id</td><td>2.0</td><td>Unique identifier for this banner object. Recommended when Banner objects are used with a Video object (Section 3.2.7) to represent an array of companion ads. Values usually start at 1 and increase with each object; should be unique within an impression.</td><td>No</td></tr>
+<tr><td>Banner</td><td>vcm</td><td>2.5</td><td>Relevant only for Banner objects used with a Video object in an array of companion ads. Indicates companion banner rendering mode relative to the associated video [ 0 = concurrent, 1 = end-card]</td><td>No</td></tr>
+<tr><td>Banner</td><td>ext</td><td>2.1</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="video"></a><a href="#video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Video</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Video</td><td>mimes</td><td>2.0</td><td>Content MIME types supported (e.g., “video/x-ms-wmv”, “video/mp4”).</td><td>Yes</td></tr>
+<tr><td>Video</td><td>minduration</td><td>2.0</td><td>Minimum video ad duration in seconds.</td><td>Yes</td></tr>
+<tr><td>Video</td><td>maxduration</td><td>2.0</td><td>Maximum video ad duration in seconds.</td><td>Yes</td></tr>
+<tr><td>Video</td><td>protocols</td><td>2.2</td><td>Array of supported video protocols. Min one supported protocol must be specified in either the protocol or protocols attribute.</td><td>Yes</td></tr>
+<tr><td>Video</td><td>protocol</td><td>2.0</td><td>NOTE: Deprecated in favor of protocols. Supported video protocol. Same guidelines as protocols</td><td>No</td></tr>
+<tr><td>Video</td><td>w</td><td>2.0</td><td>Width of the video player in device independent pixels (DIPS)</td><td>Yes</td></tr>
+<tr><td>Video</td><td>h</td><td>2.0</td><td>Height of the video player in device independent pixels (DIPS).</td><td>Yes</td></tr>
+<tr><td>Video</td><td>startdelay</td><td>2.0</td><td>Indicates the start delay in seconds for pre-roll, mid-roll, or post-roll ad placements\</td><td>No</td></tr>
+<tr><td>Video</td><td>placement</td><td>2.5</td><td>Placement type for the impression.</td><td>Yes</td></tr>
+<tr><td>Video</td><td>linearity</td><td>2.0</td><td>Indicates if the impression must be linear, nonlinear, etc. If none specified, assume all are allowed.</td><td>No</td></tr>
+<tr><td>Video</td><td>skip</td><td>2.4</td><td>Indicates if the player will allow the video to be skipped [0 = no, 1 = yes] If a bidder sends markup/creative that is itself skippable, the Bid object should include the attr array with an element of 16 indicating skippable video.</td><td>Yes</td></tr>
+<tr><td>Video</td><td>skipmin</td><td>2.4</td><td>Videos of total duration greater than this number of seconds can be skippable; only applicable if the ad is skippable.</td><td>No</td></tr>
+<tr><td>Video</td><td>skipafter</td><td>2.4</td><td>Number of seconds a video must play before skipping is enabled; only applicable if the ad is skippable.</td><td>No</td></tr>
+<tr><td>Video</td><td>sequence</td><td>2.0</td><td>If multiple ad impressions are offered in the same bid request, the sequence number will allow for the coordinated delivery of multiple creatives.</td><td>No</td></tr>
+<tr><td>Video</td><td>battr</td><td>2.0</td><td>Blocked creative attributes.</td><td>No</td></tr>
+<tr><td>Video</td><td>maxextended</td><td>2.0</td><td>Maximum extended ad duration when allowed. If blank or 0, extension is not allowed. If -1, extension is allowed, and there is no time limit imposed. If greater than 0, then the value represents the number of seconds of extended play supported beyond the maxduration value.</td><td>No</td></tr>
+<tr><td>Video</td><td>minbitrate</td><td>2.0</td><td>Minimum bit rate in Kbps.</td><td>No</td></tr>
+<tr><td>Video</td><td>maxbitrate</td><td>2.0</td><td>Maximum bit rate in Kbps.</td><td>No</td></tr>
+<tr><td>Video</td><td>boxingallowed</td><td>2.0</td><td>Indicates if letter-boxing of 4:3 content into a 16:9 window is allowed, where 0 = no, 1 = yes.</td><td>No</td></tr>
+<tr><td>Video</td><td>playbackmethod</td><td>2.0</td><td>Playback methods that may be in use. If none specified, any method may be used. Only one method is typically used in practice so this array may be converted to an integer in a future version of the specification. Strongly advised to use only the first element of this array in preparation for this change.</td><td>Yes</td></tr>
+<tr><td>Video</td><td>playbackend</td><td>2.5</td><td>The event that causes playback to end.</td><td>No</td></tr>
+<tr><td>Video</td><td>delivery</td><td>2.0</td><td>Supported delivery methods (e.g., streaming, progressive). If none specified, assume all are supported.</td><td>No</td></tr>
+<tr><td>Video</td><td>pos</td><td>2.0</td><td>Ad position on screen</td><td>Yes</td></tr>
+<tr><td>Video</td><td>companionad</td><td>2.0</td><td>Array of Banner objects if companion ads are available.</td><td>No</td></tr>
+<tr><td>Video</td><td>api</td><td>2.0</td><td>List of supported API frameworks for this impression. If an API isn't explicitly listed, it is assumed not to be supported.</td><td>No</td></tr>
+<tr><td>Video</td><td>companiontype</td><td>2.1</td><td>Supported VAST companion ad types. Recommended if companion Banner objects are included via the companionad array. If one of these banners will be rendered as an end-card, this can be specified using the vcm attribute with the particular banner</td><td>No</td></tr>
+<tr><td>Video</td><td>ext &gt; viewability</td><td>2.1</td><td>With -1 indicating unknown viewability, and 0-100 (in increments of 10) indicating the percentage of impressions that are in-view for at least 2 seconds. Derived from the previous day's MOAT data on a Channel ID + Host level combination.</td><td>No</td></tr>
+<tr><td>Video</td><td>ext &gt; spxplayersize</td><td>2.1</td><td>Relative size of the video player based on width. Measured with SpotX tech, and not declared by publisher. Width less than or equal to 300 (1), Width between 301 pixels and 599 (2), Width greater than or equal to 600 (3), Unknown (0).</td><td>No</td></tr>
+<tr><td>Video</td><td>ext &gt; initiationtype</td><td>2.1</td><td>The initiation type of the video player the ad appears in. User Initiated (1), User Click (2), Auto Initiated (3), Mixed (4), and Unknown (0).</td><td>No</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="audio"></a><a href="#audio" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Audio</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Audio</td><td>mimes</td><td>2.4</td><td>Content MIME types supported (e.g., “audio/mp4”).</td><td>No</td></tr>
+<tr><td>Audio</td><td>minduration</td><td>2.4</td><td>Minimum audio ad duration in seconds.</td><td>No</td></tr>
+<tr><td>Audio</td><td>maxduration</td><td>2.4</td><td>Maximum audio ad duration in seconds.</td><td>No</td></tr>
+<tr><td>Audio</td><td>protocols</td><td>2.4</td><td>Array of supported audio protocols.</td><td>No</td></tr>
+<tr><td>Audio</td><td>startdelay</td><td>2.4</td><td>Indicates the start delay in seconds for pre-roll, mid-roll, or post-roll ad placements</td><td>No</td></tr>
+<tr><td>Audio</td><td>sequence</td><td>2.4</td><td>If multiple ad impressions are offered in the same bid reques this will allow for the coordinated delivery of multiple creatives.</td><td>No</td></tr>
+<tr><td>Audio</td><td>battr</td><td>2.4</td><td>Blocked creative attributes.</td><td>No</td></tr>
+<tr><td>Audio</td><td>maxextended</td><td>2.4</td><td>Maximum extended ad duration if extension is allowed. If blank or 0, extension is not allowed. If -1, extension is allowed, and there is no time limit imposed. If greater than 0, then the value represents the number of seconds of extended play supported beyond the maxduration value.</td><td>No</td></tr>
+<tr><td>Audio</td><td>minbitrate</td><td>2.4</td><td>Minimum bit rate in Kbps.</td><td>No</td></tr>
+<tr><td>Audio</td><td>maxbitrate</td><td>2.4</td><td>Maximum bit rate in Kbps</td><td>No</td></tr>
+<tr><td>Audio</td><td>delivery</td><td>2.4</td><td>Supported delivery methods (e.g., streaming, progressive). If none specified, assume all are supported.</td><td>No</td></tr>
+<tr><td>Audio</td><td>companionad</td><td>2.4</td><td>Array of Banner objects if companion ads are available</td><td>No</td></tr>
+<tr><td>Audio</td><td>api</td><td>2.4</td><td>List of supported API frameworks for this impression. If not explicitly listed, assume its not supported.</td><td>No</td></tr>
+<tr><td>Audio</td><td>companiontype</td><td>2.4</td><td>Supported DAAST companion ad types. Recommended if companion Banner objects are included via the companionad array.</td><td>No</td></tr>
+<tr><td>Audio</td><td>maxseq</td><td>2.4</td><td>The maximum number of ads that can be played in an ad pod.</td><td>No</td></tr>
+<tr><td>Audio</td><td>feed</td><td>2.4</td><td>Type of audio feed.</td><td>No</td></tr>
+<tr><td>Audio</td><td>stitched</td><td>2.4</td><td>Indicates if the ad is stitched with audio content or delivered independently [0 = no, 1 = yes]</td><td>No</td></tr>
+<tr><td>Audio</td><td>nvol</td><td>2.4</td><td>Volume normalization mode.</td><td>No</td></tr>
+<tr><td>Audio</td><td>ext</td><td>2.4</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>No</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="format"></a><a href="#format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Format</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Format</td><td>w</td><td>2.4</td><td>Width in device independent pixels (DIPS).</td><td></td></tr>
+<tr><td>Format</td><td>h</td><td>2.4</td><td>Height in device independent pixels (DIPS).</td><td></td></tr>
+<tr><td>Format</td><td>wratio</td><td>2.5</td><td>Relative width when expressing size as a ratio.</td><td></td></tr>
+<tr><td>Format</td><td>hratio</td><td>2.5</td><td>Relative height when expressing size as a ratio</td><td></td></tr>
+<tr><td>Format</td><td>wmin</td><td>2.5</td><td>The minimum width in device independent pixels (DIPS) at which the ad will be displayed the size is expressed as a ratio.</td><td></td></tr>
+<tr><td>Format</td><td>ext</td><td>2.4</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="pmp"></a><a href="#pmp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PMP</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>PMP</td><td>private_auction</td><td>2.2</td><td>Indicator of auction eligibility to seats named in the Direct Deals object [ 0 = all bids are accepted, 1 = bids] are restricted to the deals specified and the terms thereof.</td><td>yes</td></tr>
+<tr><td>PMP</td><td>deals</td><td>2.2</td><td>Array of Deal objects that convey the specific deals applicable to this impression.</td><td>yes</td></tr>
+<tr><td>PMP</td><td>ext</td><td>2.2</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="deal"></a><a href="#deal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deal</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Deal</td><td>id</td><td>2.2</td><td>A unique identifier for the direct deal.</td><td>yes</td></tr>
+<tr><td>Deal</td><td>bidfloor</td><td>2.2</td><td>Minimum bid for this impression expressed in CPM.</td><td></td></tr>
+<tr><td>Deal</td><td>bidfloorcur</td><td>2.2</td><td>Currency specified using ISO-4217 alpha codes. This may be different from bid currency returned by bidder if this is allowed by the exchange.</td><td></td></tr>
+<tr><td>Deal</td><td>at</td><td>2.2</td><td>Optional override of the overall auction type of the bid request [1 = First Price, 2 = Second Price, 3 = the value passed in bidfloor is the agreed upon deal price] Additional auction types can be defined by the exchange.</td><td></td></tr>
+<tr><td>Deal</td><td>wseat</td><td>2.2</td><td>Whitelist of buyer seats (e.g., advertisers, agencies) allowed to bid on this deal. IDs of seats and the buyer’s customers to which they refer must be coordinated between bidders and the exchange a priori. Omission implies no seat restrictions.</td><td></td></tr>
+<tr><td>Deal</td><td>wadomain</td><td>2.2</td><td>Array of advertiser domains (e.g., advertiser.com) allowed to bid on this deal. Omission implies no advertiser restrictions.</td><td></td></tr>
+<tr><td>Deal</td><td>ext &gt; priority</td><td>2.2</td><td>The priority of an agreed upon deal represented as a 1- 6 integer where 1 is the highest priority and 6 is the lowest priority.</td><td></td></tr>
+<tr><td>Deal</td><td>ext &gt; guaranteed</td><td>2.2</td><td>1 indicates that this deal is guaranteed. When a deal is guaranteed, the buyer and seller have pre-negotiated deal terms, and the DSP is expected to not apply any targeting. These deals will always be fixed-price (AT=3).</td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="site"></a><a href="#site" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Site</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Site</td><td>id</td><td>2.0</td><td>Exchange-specific site ID.</td><td></td></tr>
+<tr><td>Site</td><td>name</td><td>2.0</td><td>Site name (may be aliased at the publisher’s request).</td><td></td></tr>
+<tr><td>Site</td><td>domain</td><td>2.0</td><td>Domain of the site (e.g., “mysite.foo.com”).</td><td></td></tr>
+<tr><td>Site</td><td>cat</td><td>2.0</td><td>Array of IAB content categories of the site.</td><td></td></tr>
+<tr><td>Site</td><td>sectioncat</td><td>2.0</td><td>Array of IAB content categories that describe the current section of the site.</td><td></td></tr>
+<tr><td>Site</td><td>page</td><td>2.0</td><td>URL of the page where the impression will be shown.</td><td>No</td></tr>
+<tr><td>Site</td><td>pagecat</td><td>2.0</td><td>Array of IAB content categories that describe the current page or view of the site.</td><td></td></tr>
+<tr><td>Site</td><td>ref</td><td>2.0</td><td>Referrer URL that caused navigation to the current page</td><td></td></tr>
+<tr><td>Site</td><td>search</td><td>2.0</td><td>Search string that caused navigation to the current page</td><td></td></tr>
+<tr><td>Site</td><td>mobile</td><td>2.3</td><td>Indicates if the site has been programmed to optimize layout when viewed on mobile device [0 = no, 1 = yes]</td><td></td></tr>
+<tr><td>Site</td><td>privacypolicy</td><td>2.1</td><td>Indicates if the site has a privacy policy [0 = no, 1 = yes]</td><td></td></tr>
+<tr><td>Site</td><td>publisher</td><td>2.0</td><td>Details about the Publisher of the site.</td><td></td></tr>
+<tr><td>Site</td><td>content</td><td>2.0</td><td>Details about the Content within the site.</td><td></td></tr>
+<tr><td>Site</td><td>keywords</td><td>2.0</td><td>Comma separated list of keywords about the site.</td><td></td></tr>
+<tr><td>Site</td><td>ext &gt; isiframe</td><td>2.1</td><td>Declaration of whether the impression will be served within an iframe. Values: Y = yes, N = no, U = unknown</td><td></td></tr>
+<tr><td>Site</td><td>ext &gt; channelid</td><td>2.1</td><td>Publisher segmentation ID</td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="app"></a><a href="#app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>App</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>App</td><td>id</td><td>2.0</td><td>Exchange-specific app ID.</td><td>Yes</td></tr>
+<tr><td>App</td><td>name</td><td>2.0</td><td>App name (may be aliased at the publisher’s request</td><td>Yes</td></tr>
+<tr><td>App</td><td>bundle</td><td>2.1</td><td>A platform-specific application identifier intended to be unique to the app and independent of the exchange. On Android, this should be a bundle or package name (e.g., com.foo.mygame). On iOS, it is typically a numeric ID</td><td>Yes</td></tr>
+<tr><td>App</td><td>domain</td><td>2.0</td><td>Domain of the app (e.g., “mygame.foo.com”).</td><td>No</td></tr>
+<tr><td>App</td><td>storeurl</td><td>2.1</td><td>App store URL for an installed app; for IQG 2.1 compliance.</td><td>Yes</td></tr>
+<tr><td>App</td><td>cat</td><td>2.0</td><td>Array of IAB content categories of the app.</td><td>Yes</td></tr>
+<tr><td>App</td><td>sectioncat</td><td>2.0</td><td>Array of IAB content categories that describe the current section of the app.</td><td>No</td></tr>
+<tr><td>App</td><td>pagecat</td><td>2.0</td><td>Array of IAB content categories that describe the current page or view of the app.</td><td>No</td></tr>
+<tr><td>App</td><td>ver</td><td>2.0</td><td>Application version.</td><td>No</td></tr>
+<tr><td>App</td><td>privacypolicy</td><td>2.0</td><td>Indicates if the app has a privacy policy [0 = no, 1 = yes]</td><td>No</td></tr>
+<tr><td>App</td><td>paid</td><td>2.0</td><td>0 = app is free, 1 = the app is a paid version</td><td>No</td></tr>
+<tr><td>App</td><td>publisher</td><td>2.0</td><td>Details about the Publisher of the app</td><td>yes</td></tr>
+<tr><td>App</td><td>content</td><td>2.0</td><td>Details about the Content within the app.</td><td>No</td></tr>
+<tr><td>App</td><td>keywords</td><td>2.0</td><td>Comma separated list of keywords about the app.</td><td>No</td></tr>
+<tr><td>App</td><td>ext &gt; store_foreign_app_id</td><td>2.1</td><td>ID for app stores.</td><td></td></tr>
+<tr><td>App</td><td>ext &gt; mediarating</td><td>2.1</td><td>The current rating of the app in its corresponding app store.</td><td></td></tr>
+<tr><td>App</td><td>ext &gt; company_url</td><td>2.1</td><td>URL of the app developer.</td><td></td></tr>
+<tr><td>App</td><td>ext &gt; channelid</td><td>2.1</td><td>Publisher segmentation ID.</td><td></td></tr>
+<tr><td>App</td><td>ext &gt; apple_id</td><td>2.1</td><td>App Store ID number for an iOS app.</td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="publisher"></a><a href="#publisher" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publisher</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Publisher</td><td>id</td><td>2.0</td><td>Exchange-specific publisher ID.</td><td>Yes</td></tr>
+<tr><td>Publisher</td><td>name</td><td>2.0</td><td>Publisher name (may be aliased at the publisher’s request).</td><td>Yes</td></tr>
+<tr><td>Publisher</td><td>cat</td><td>2.0</td><td>Array of IAB content categories that describe the publisher.</td><td></td></tr>
+<tr><td>Publisher</td><td>domain</td><td>2.0</td><td>Highest level domain of the publisher (e.g., “publisher.com”).</td><td></td></tr>
+<tr><td>Publisher</td><td>ext</td><td>2.1</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="content"></a><a href="#content" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Content</td><td>id</td><td>2.0</td><td>ID uniquely identifying the content.</td><td></td></tr>
+<tr><td>Content</td><td>episode</td><td>2.0</td><td>Episode number.</td><td></td></tr>
+<tr><td>Content</td><td>title</td><td>2.0</td><td>Content title.</td><td>No</td></tr>
+<tr><td>Content</td><td>series</td><td>2.0</td><td>Content series.</td><td>No</td></tr>
+<tr><td>Content</td><td>season</td><td>2.0</td><td>Content season.</td><td></td></tr>
+<tr><td>Content</td><td>artist</td><td>2.4</td><td>Artist credited with the content</td><td></td></tr>
+<tr><td>Content</td><td>genre</td><td>2.4</td><td>Genre that best describes the content (e.g., rock, pop, etc).</td><td></td></tr>
+<tr><td>Content</td><td>album</td><td>2.4</td><td>Album to which the content belongs; typically for audio.</td><td></td></tr>
+<tr><td>Content</td><td>isrc</td><td>2.4</td><td>International Standard Recording Code conforming to ISO3901</td><td></td></tr>
+<tr><td>Content</td><td>producer</td><td>2.0</td><td>Details about the content Producer</td><td></td></tr>
+<tr><td>Content</td><td>url</td><td>2.0</td><td>URL of the content, for buy-side contextualization or review</td><td></td></tr>
+<tr><td>Content</td><td>cat</td><td>2.0</td><td>Array of IAB content categories that describe the content producer</td><td></td></tr>
+<tr><td>Content</td><td>prodq</td><td>2.4</td><td>Production quality.</td><td></td></tr>
+<tr><td>Content</td><td>videoquality</td><td>2.0</td><td>Note: Deprecated in favor of prodq. Video quality.</td><td></td></tr>
+<tr><td>Content</td><td>context</td><td>2.0</td><td>Type of content (game, video, text, etc.).</td><td></td></tr>
+<tr><td>Content</td><td>contentrating</td><td>2.0</td><td>Content rating (e.g., MPAA).</td><td></td></tr>
+<tr><td>Content</td><td>userrating</td><td>2.0</td><td>User rating of the content (e.g., number of stars, likes, etc.).</td><td></td></tr>
+<tr><td>Content</td><td>qagmediarating</td><td>2.1</td><td>Media rating per IQG guidelines.</td><td></td></tr>
+<tr><td>Content</td><td>keywords</td><td>2.0</td><td>Comma separated list of keywords describing the content.</td><td></td></tr>
+<tr><td>Content</td><td>livestream</td><td>2.0</td><td>0 = not live, 1 = content is live (e.g., stream, live blog)</td><td></td></tr>
+<tr><td>Content</td><td>sourcerelationship</td><td>2.0</td><td>0 = indirect, 1 = direct.</td><td></td></tr>
+<tr><td>Content</td><td>len</td><td>2.0</td><td>Length of content in seconds; appropriate for video or audio.</td><td></td></tr>
+<tr><td>Content</td><td>language</td><td>2.1</td><td>Content language using ISO-639-1-alpha-2.</td><td></td></tr>
+<tr><td>Content</td><td>embeddable</td><td>2.1</td><td>Indicator of whether or not the content is embeddable (e.g., an embeddable video player), where 0 = no, 1 = yes.</td><td></td></tr>
+<tr><td>Content</td><td>data</td><td>2.4</td><td>Additional content data. Each Data object represents a different data source.</td><td></td></tr>
+<tr><td>Content</td><td>ext</td><td>2.1</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="producer"></a><a href="#producer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Producer</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Producer</td><td>id</td><td>2.0</td><td>Content producer or originator ID. Useful if content is syndicated and may be posted on a site using embed tags.</td><td></td></tr>
+<tr><td>Producer</td><td>name</td><td>2.0</td><td>Content producer or originator name (e.g., “Warner Bros”).</td><td></td></tr>
+<tr><td>Producer</td><td>cat</td><td>2.0</td><td>Array of IAB content categories that describe the content producer.</td><td></td></tr>
+<tr><td>Producer</td><td>domain</td><td>2.0</td><td>Highest level domain of the content producer (e.g., “producer.com”).</td><td></td></tr>
+<tr><td>Producer</td><td>ext</td><td>2.1</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="device"></a><a href="#device" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Device</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Device</td><td>ua</td><td>2.0</td><td>Browser user agent string.</td><td>Yes</td></tr>
+<tr><td>Device</td><td>Geo</td><td>2</td><td>Location of the device assumed to be the user’s current location defined by a Geo object</td><td>Yes</td></tr>
+<tr><td>Device</td><td>genre</td><td>2.2</td><td></td><td>Yes</td></tr>
+<tr><td>Device</td><td>dnt</td><td>2.0</td><td>Standard “Do Not Track” flag as set in the header by the browser, where 0 = tracking is unrestricted, 1 = do not track.</td><td>Yes</td></tr>
+<tr><td>Device</td><td>lmt</td><td>2.3</td><td>“Limit Ad Tracking” signal commercially endorsed (e.g., iOS, Android) [0 = tracking is unrestricted, 1 = tracking must be limited per commercial guidelines]</td><td>Yes</td></tr>
+<tr><td>Device</td><td>ip</td><td>2.0</td><td>IPv4 address closest to device</td><td>Yes</td></tr>
+<tr><td>Device</td><td>ipv6</td><td>2.0</td><td>IP address closest to device as IPv6.</td><td>Yes</td></tr>
+<tr><td>Device</td><td>devicetype</td><td>2.0</td><td>The general type of device.</td><td>Yes</td></tr>
+<tr><td>Device</td><td>make</td><td>2.0</td><td>Device make (e.g., “Apple”).</td><td>No</td></tr>
+<tr><td>Device</td><td>model</td><td>2.0</td><td>Device model (e.g., “iPhone”).</td><td>No</td></tr>
+<tr><td>Device</td><td>os</td><td>2.0</td><td>Device operating system (e.g., “iOS”).</td><td>No</td></tr>
+<tr><td>Device</td><td>osv</td><td>2.0</td><td>Device operating system version (e.g., “3.1.2”).</td><td>No</td></tr>
+<tr><td>Device</td><td>hwv</td><td>2.3</td><td>Hardware version of the device (e.g., “5S” for iPhone 5S)</td><td>No</td></tr>
+<tr><td>Device</td><td>h</td><td>2.3</td><td>Physical height of the screen in pixels.</td><td>Yes</td></tr>
+<tr><td>Device</td><td>w</td><td>2.3</td><td>Physical width of the screen in pixels.</td><td>Yes</td></tr>
+<tr><td>Device</td><td>ppi</td><td>2.3</td><td>Screen size as pixels per linear inch.</td><td>No</td></tr>
+<tr><td>Device</td><td>pxratio</td><td>2.3</td><td>The ratio of physical pixels to device independent pixels.</td><td>Yes</td></tr>
+<tr><td>Device</td><td>js</td><td>2.0</td><td>Support for JavaScript [0 = no, 1 = yes]</td><td>Yes</td></tr>
+<tr><td>Device</td><td>geofetch</td><td>2.4</td><td>Indicates if the geolocation API will be available to JavaScript code running in the banner [0 = no, 1 = yes]</td><td>Yes</td></tr>
+<tr><td>Device</td><td>flashver</td><td>2.0</td><td>Version of Flash supported by the browser.</td><td>Yes</td></tr>
+<tr><td>Device</td><td>language</td><td>2.0</td><td>Browser language using ISO-639-1-alpha-2.</td><td>No</td></tr>
+<tr><td>Device</td><td>carrier</td><td>2.0</td><td>Carrier or ISP (e.g., “VERIZON”) using exchange curated string names which should be published to bidders a priori.</td><td>No</td></tr>
+<tr><td>Device</td><td>mccmnc</td><td>2.5</td><td>Mobile carrier as the concatenated MCC-MNC code (e.g., “310-005” identifies Verizon Wireless CDMA in the USA). Refer to <a href="https://en.wikipedia.org/wiki/Mobile_country_code">https://en.wikipedia.org/wiki/Mobile_country_code</a> for further examples. Note that the dash between the MCC and MNC parts is required to remove parsing ambiguity.</td><td>No</td></tr>
+<tr><td>Device</td><td>connectiontype</td><td>2.0</td><td>Network connection type.</td><td>Yes</td></tr>
+<tr><td>Device</td><td>ifa</td><td>2.2</td><td>ID sanctioned for advertiser use in the clear (i.e., not hashed).</td><td>Yes</td></tr>
+<tr><td>Device</td><td>didsha1</td><td>2.0</td><td>Hardware device ID (e.g., IMEI); hashed via SHA1.</td><td>No</td></tr>
+<tr><td>Device</td><td>didmd5</td><td>2.0</td><td>Hardware device ID (e.g., IMEI); hashed via MD5</td><td>Yes</td></tr>
+<tr><td>Device</td><td>dpidshal</td><td>2.0</td><td>Platform device ID (e.g., Android ID); hashed via SHA1.</td><td>Yes</td></tr>
+<tr><td>Device</td><td>dpidmd5</td><td>2.0</td><td>Platform device ID (e.g., Android ID); hashed via MD5</td><td>Yes</td></tr>
+<tr><td>Device</td><td>macshal</td><td>2.2</td><td>MAC address of the device; hashed via SHA1.</td><td>No</td></tr>
+<tr><td>Device</td><td>macmd5</td><td>2.2</td><td>MAC address of the device; hashed via MD5</td><td>Yes</td></tr>
+<tr><td>Device</td><td>ext</td><td>2.2</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>Yes</td></tr>
+<tr><td>Device</td><td>ext&gt; ifa_type</td><td>2.2</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>No</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="geo"></a><a href="#geo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Geo</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Geo</td><td>lat</td><td>2.0</td><td>Latitude from -90.0 to +90.0, where negative is south.</td><td>No</td></tr>
+<tr><td>Geo</td><td>lon</td><td>2.0</td><td>Longitude from -180.0 to +180.0, where negative is west.</td><td>Yes</td></tr>
+<tr><td>Geo</td><td>type</td><td>2.0</td><td>Source of location data; recommended when passing lat/lon.</td><td>No</td></tr>
+<tr><td>Geo</td><td>accuracy</td><td>2.4</td><td>Estimated location accuracy in meters; recommended when lat/lon are specified and derived from a device’s location services (i.e., type = 1). Note that this is the accuracy as reported from the device. Consult OS specific documentation (e.g., Android, iOS) for exact interpretation.</td><td>No</td></tr>
+<tr><td>Geo</td><td>lastfix</td><td>2.4</td><td>Number of seconds since this geolocation fix was established. Note that devices may cache location data across multiple fetches. Ideally, this value should be from the time the actual fix was taken</td><td>Yes</td></tr>
+<tr><td>Geo</td><td>ipservice</td><td>2.4</td><td>Service or provider used to determine geolocation from IP address if applicable (i.e., type = 2).</td><td>No</td></tr>
+<tr><td>Geo</td><td>country</td><td>2.0</td><td>Country code using ISO-3166-1-alpha-3</td><td>Yes</td></tr>
+<tr><td>Geo</td><td>region</td><td>2.0</td><td>Region code using ISO-3166-2; 2-letter state code if USA.</td><td>Yes</td></tr>
+<tr><td>Geo</td><td>regionfips104</td><td>2.0</td><td>Region of a country using FIPS 10-4 notation. While OpenRTB supports this attribute, it has been withdrawn by NIST in 2008.</td><td>No</td></tr>
+<tr><td>Geo</td><td>metro</td><td>2.0</td><td>Google metro code; similar to but not exactly Nielsen DMAs.</td><td>Yes</td></tr>
+<tr><td>Geo</td><td>city</td><td>2.0</td><td>City using United Nations Code for Trade &amp; Transport Locations</td><td>No</td></tr>
+<tr><td>Geo</td><td>zip</td><td>2.0</td><td>Zip or postal code</td><td>No</td></tr>
+<tr><td>Geo</td><td>utcoffset</td><td>2.3</td><td>Local time as the number +/- of minutes from UTC.</td><td>Yes</td></tr>
+<tr><td>Geo</td><td>ext</td><td>2.2</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>No</td></tr>
+<tr><td>Geo</td><td>ext &gt; nex_dma</td><td>2.2</td><td>The user's Designated Market Area (DMA) location. Only applicable when the bid request originates from within the United States.</td><td>No</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="user"></a><a href="#user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>User</td><td>id</td><td>2.0</td><td>Exchange-specific ID for the user. At least one of id or buyeruid is recommended.</td><td>No</td></tr>
+<tr><td>User</td><td>buyeruid</td><td>2.0</td><td>Buyer-specific ID for the user as mapped by the exchange for the buyer. At least one of buyeruid or id is recommended.</td><td>No</td></tr>
+<tr><td>User</td><td>yob</td><td>2.0</td><td>Year of birth as a 4-digit integer</td><td>Yes</td></tr>
+<tr><td>User</td><td>gender</td><td>2.0</td><td>Gender, where “M” = male, “F” = female, “O” = known to be other (i.e., omitted is unknown).</td><td>Yes</td></tr>
+<tr><td>User</td><td>keywords</td><td>2.0</td><td>Comma separated list of keywords, interests, or intent.</td><td>Yes</td></tr>
+<tr><td>User</td><td>customdata</td><td>2.0</td><td>Optional feature to pass bidder data that was set in the exchange’s cookie. The string must be in base85 cookie safe characters and be in any format. Proper JSON encoding must be used to include “escaped” quotation marks.</td><td>No</td></tr>
+<tr><td>User</td><td>Geo</td><td>2.0</td><td>Location of the user’s home base defined by a Geo object (not necessarily their current location)</td><td>No</td></tr>
+<tr><td>User</td><td>data</td><td>2.0</td><td>Additional user data. Each Data object represents a different data source.</td><td>No</td></tr>
+<tr><td>User</td><td>ext &gt; consent</td><td>2.1</td><td>Either integer value (0 = no, 1 = yes, 2 = legitimate interest) indicating if the user has consented to information sharing under GDPR, or a full IAB consent string with vendor specific consent encoded in it.</td><td>No</td></tr>
+<tr><td>User</td><td>ext &gt; digitrust</td><td>2.1</td><td>DigiTrust is designed to provide an anonymous, persistent and secure identifier for publishers and trusted third parties on all browser platforms.</td><td>Yes</td></tr>
+<tr><td>User</td><td>ext &gt; digitrust &gt; keyv</td><td>2.1</td><td>Key version used to encrypt the id</td><td>Yes</td></tr>
+<tr><td>User</td><td>ext &gt; digitrust &gt; id</td><td>2.1</td><td>DigiTrust unique device identifier. The DigiTrust ID is a standardized, privacy-safe, persistent User ID.</td><td>Yes</td></tr>
+<tr><td>User</td><td>ext &gt; eids</td><td>2.1</td><td>Extension for Universal IDs.</td><td>Yes</td></tr>
+<tr><td>User</td><td>ext &gt; eids &gt; uids</td><td>2.1</td><td>Object containing universal ids.</td><td>No</td></tr>
+<tr><td>User</td><td>ext &gt; eids &gt; source</td><td>2.1</td><td>The source of the ids, static as &quot;adserver.org&quot;.</td><td>No</td></tr>
+<tr><td>User</td><td>ext &gt; eids &gt; auids &gt; id</td><td>2.1</td><td>The audience's id according to The Trade Desk</td><td>Yes</td></tr>
+<tr><td>User</td><td>ext &gt; eids &gt; uids &gt; ext</td><td>2.1</td><td>Object containing meta information about the associated id.</td><td>No</td></tr>
+<tr><td>User</td><td>ext &gt;eids &gt; uids&gt; ext &gt; rtiPartner</td><td>2.1</td><td>The rtipartner field is used to pass the The Trade Desk Unified ID, a shared ID that companies can use to identify a user.</td><td>No</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="data"></a><a href="#data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Data</td><td>id</td><td>2.0</td><td>Exchange-specific ID for the data provider</td><td>Yes</td></tr>
+<tr><td>Data</td><td>name</td><td>2.0</td><td>Exchange-specific name for the data provider.</td><td>Yes</td></tr>
+<tr><td>Data</td><td>segment</td><td>2.0</td><td>Array of Segment objects that contain the actual data values.</td><td>Yes</td></tr>
+<tr><td>Data</td><td>ext</td><td>2.1</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="segment"></a><a href="#segment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Segment</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>Segment</td><td>id</td><td>2.0</td><td>ID of the data segment specific to the data provider.</td><td>Yes</td></tr>
+<tr><td>Segment</td><td>name</td><td>2.0</td><td>Name of the data segment specific to the data provider.</td><td>No</td></tr>
+<tr><td>Segment</td><td>value</td><td>2.0</td><td>String representation of the data segment value.</td><td>Yes</td></tr>
+<tr><td>Segment</td><td>ext</td><td>2.1</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="misc"></a><a href="#misc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Misc.</h2>
+<table>
+<thead>
+<tr><th>OBJECT</th><th>FIELD</th><th>ORTB Version</th><th>Field information</th><th>Is supported</th></tr>
+</thead>
+<tbody>
+<tr><td>User</td><td>ext: GDPR</td><td>NOT STANDARD</td><td>This field is used to incidate whether or not GDPR is relevant</td><td>No</td></tr>
+<tr><td>User</td><td>ext: Consent</td><td>NOT STANDARD</td><td>This field is used to indicate whether or not a user has consented</td><td>Yes</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/ops-docs/docs/OnBoarding"><span class="arrow-prev">← </span><span>Onboarding Process</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#bidrequest">BidRequest</a></li><li><a href="#source">Source</a></li><li><a href="#regs">Regs</a></li><li><a href="#imp">Imp</a></li><li><a href="#metric">Metric</a></li><li><a href="#banner">Banner</a></li><li><a href="#video">Video</a></li><li><a href="#audio">Audio</a></li><li><a href="#format">Format</a></li><li><a href="#pmp">PMP</a></li><li><a href="#deal">Deal</a></li><li><a href="#site">Site</a></li><li><a href="#app">App</a></li><li><a href="#publisher">Publisher</a></li><li><a href="#content">Content</a></li><li><a href="#producer">Producer</a></li><li><a href="#device">Device</a></li><li><a href="#geo">Geo</a></li><li><a href="#user">User</a></li><li><a href="#data">Data</a></li><li><a href="#segment">Segment</a></li><li><a href="#misc">Misc.</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/ops-docs/docs/OnBoarding" class="nav-home" id="footer-image" target="_blank"><img id="footer-image" src="/ops-docs/img/is-video-white.png" alt="Operations Documentation Site"/></a></section><div id="contact_us"><a href="mailto:nick.holden@ironsrc.com" id="contact_us">Contact us</a></div><section class="copyright">Copyright © 2020 IronSource LTD</section></footer></div></body></html>
