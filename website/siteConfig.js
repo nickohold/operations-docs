@@ -50,9 +50,9 @@ const siteConfig = {
 
  
   /* path to images for header/footer */
-  headerIcon: 'https://sdk.streamrail.com/logos/is-video-white.png',
-  footerIcon: 'https://sdk.streamrail.com/logos/is-video-white.png',
-  favicon: 'https://static.ironsrc.com/wp-content/themes/ironsrc/favicon.png',
+  headerIcon: '/img/is-video-white.png',
+  footerIcon: '/img/is-video-white.png',
+  favicon: '/img/favicon.png',
 
   /* Colors for website */
   colors: {
