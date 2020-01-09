@@ -42,7 +42,7 @@ const siteConfig = {
   headerLinks: [
     {doc: 'OnBoarding',label:'Docs'},
     // {blog: true, label: 'Blog'},
-    {href:'https://connect.ironsrc.com/api-docs', label: 'Connect API', external: true},
+    // {href:'https://connect.ironsrc.com/api-docs', label: 'Connect API', external: true},
   ],
 
   // If you have users set above, you add it here:
