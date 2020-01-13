@@ -21,7 +21,7 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Operations Documentation Site', // Title for your website.
+  title: 'IronSource RTB Integration', // Title for your website.
   tagline: '',
   // url: 'http://sdk.streamrail.com/operations/ops-site/', // Your website URL
   // baseUrl: 'http://sdk.streamrail.com/operations/ops-site/', // Base URL for your project */
