@@ -5,6 +5,7 @@ jobs:
       - image: debian:stretch
     branches:
       ignore: gh-pages
+      ignore: master
     steps:
       - checkout
 
