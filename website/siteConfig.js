@@ -23,11 +23,7 @@ const users = [
 const siteConfig = {
   title: 'IronSource RTB Integration', // Title for your website.
   tagline: '',
-  // url: 'http://sdk.streamrail.com/operations/ops-site/', // Your website URL
-  // baseUrl: 'http://sdk.streamrail.com/operations/ops-site/', // Base URL for your project */
-  // For github.io type URLs, you would set the url and baseUrl like:
-  //   url: 'https://facebook.github.io',
-    // baseUrl: '/',
+    baseUrl: '/',
 
   // Used for publishing and more
   projectName: 'ops-docs',
@@ -36,11 +32,13 @@ const siteConfig = {
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
    organizationName: 'nickohold',
    url:"https://nickohold.github.io/",
-   baseUrl:"/ops-docs/",
+  //  baseUrl:"/ops-docs/",
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     {doc: 'OnBoarding',label:'Docs'},
+    {page:'testing_pages.html', label:'Integration_flow'},
+    // {page:'MyPage', label:'MyPage'},
     // {blog: true, label: 'Blog'},
     // {href:'https://connect.ironsrc.com/api-docs', label: 'Connect API', external: true},
   ],
@@ -48,7 +46,7 @@ const siteConfig = {
   // If you have users set above, you add it here:
   // users,
 
- 
+  
   /* path to images for header/footer */
   headerIcon: 'img/is-video-white.png',
   footerIcon: 'img/is-video-white.png',
@@ -83,6 +81,7 @@ const siteConfig = {
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
     theme: 'default',
+    wrapPagesHTML:true,
   },
 
   // Add custom scripts here that would be placed in <script> tags.
