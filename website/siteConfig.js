@@ -37,8 +37,8 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     {doc: 'OnBoarding',label:'Docs'},
-    {page:'testing_pages.html', label:'Integration_flow'},
-    {page:'testing', label:'MyPage'},
+    // {page:'testing_pages.html', label:'Integration_flow'},
+    {page:'new_integration_email', label:'New Integrations'},
     // {blog: true, label: 'Blog'},
     // {href:'https://connect.ironsrc.com/api-docs', label: 'Connect API', external: true},
   ],
