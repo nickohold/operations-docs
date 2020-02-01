@@ -175,16 +175,7 @@ For more information about the navigation bar, click [here](https://docusaurus.i
 1. If you want your page to show up in your navigation header, you will need to update `website/siteConfig.js` to add to the `headerLinks` element:
 
 `website/siteConfig.js`
-```javascript
-{
-  headerLinks: [
-    ...
-    { page: 'my-new-custom-page', label: 'My New Custom Page' },
-    ...
-  ],
-  ...
-}
-```
+
 
 For more information about custom pages, click [here](https://docusaurus.io/docs/en/custom-pages).
 
