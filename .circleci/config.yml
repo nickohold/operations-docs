@@ -5,13 +5,13 @@ jobs:
       - image: debian:stretch
     branches:
       ignore: gh-pages
-      ignore: master
     steps:
       - checkout
 
       - run:
           name: Greeting
           command: echo Hello, world.
+          command: npm run build
 
       - run:
           name: Print the Current Time

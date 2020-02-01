@@ -38,7 +38,19 @@ padding-top:0;
     /* background: black */
     /* height: 100%; */
 }
-
+#footer-image{
+    width: 150px;
+}
+.nav-footer .sitemap{
+    margin:0 auto ;
+}
+.nav-footer{
+    /* max-height: 100px */
+    padding-bottom:0;
+}
+.nav-footer .sitemap .nav-home{
+    height: 50px;
+}
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 

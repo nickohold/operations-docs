@@ -75,7 +75,7 @@ class HomeSplash extends React.Component {
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
             {/* <Button href="#try">Try It Out</Button> */}
-            <Button href={'testing_pages.html'}>RTB integ flow - new integration</Button>
+            {/* <Button href={'testing_pages.html'}>RTB integ flow - new integration</Button> */}
           </PromoSection>
         </div> 
       </SplashContainer>

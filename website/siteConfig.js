@@ -23,8 +23,8 @@ const users = [
 const siteConfig = {
   title: 'IronSource RTB Integration', // Title for your website.
   tagline: '',
-    baseUrl: '/',
-
+  // baseUrl: '/',
+  baseUrl: '/operations/',
   // Used for publishing and more
   projectName: 'ops-docs',
   // organizationName: 'Ironsource',
@@ -38,7 +38,7 @@ const siteConfig = {
   headerLinks: [
     {doc: 'OnBoarding',label:'Docs'},
     {page:'testing_pages.html', label:'Integration_flow'},
-    // {page:'MyPage', label:'MyPage'},
+    {page:'testing', label:'MyPage'},
     // {blog: true, label: 'Blog'},
     // {href:'https://connect.ironsrc.com/api-docs', label: 'Connect API', external: true},
   ],
