@@ -6,7 +6,7 @@ jobs:
     branches:
       ignore: gh-pages
     steps:
-      - run: echo "Skipping tests on gh-pages branch"
+      - run: yarn run publish-gh-pages
 
       - run:
           name: Print the Current Time

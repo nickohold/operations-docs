@@ -39,6 +39,7 @@ const siteConfig = {
     {doc: 'OnBoarding',label:'Docs'},
     // {page:'testing_pages.html', label:'Integration_flow'},
     {page:'new_integration_email', label:'New Integrations'},
+    {page:'mraid_specs', label:'Mraid Specs'},
     // {blog: true, label: 'Blog'},
     // {href:'https://connect.ironsrc.com/api-docs', label: 'Connect API', external: true},
   ],

@@ -45,7 +45,6 @@ padding-top:0;
     margin:0 auto ;
 }
 .nav-footer{
-    /* max-height: 100px */
     padding-bottom:0;
 }
 .nav-footer .sitemap .nav-home{
@@ -78,7 +77,24 @@ ol >li>ol>li>ol{
     border:10px lightcyan groove
 }
 
+#mraid_iframe_container{
+    position: static;
+    width:50%;
+    padding:0;
+    margin:auto;
+    margin-top:30px;
+}
 
+#mraid_specs{
+    width: 75%;
+    height: 80%;
+    display:block;
+    position: absolute;
+    padding: 0;
+    margin:auto;
+}
+
+/* 
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 
@@ -92,4 +108,4 @@ ol >li>ol>li>ol{
 }
 
 @media only screen and (min-width: 1500px) {
-}
+} */

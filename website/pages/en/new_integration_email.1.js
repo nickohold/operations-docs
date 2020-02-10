@@ -69,5 +69,3 @@ return (
 MyPage.title = 'My Custom title';
 
 module.exports = MyPage;
-
-
