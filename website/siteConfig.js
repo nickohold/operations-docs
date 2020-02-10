@@ -24,14 +24,14 @@ const siteConfig = {
   title: 'IronSource RTB Integration', // Title for your website.
   tagline: '',
   // baseUrl: '/',
-  baseUrl: '/operations/',
+  baseUrl: '/operations-docs/',
   // Used for publishing and more
-  projectName: 'ops-docs',
+  projectName: 'operations-docs',
   // organizationName: 'Ironsource',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
    organizationName: 'nickohold',
-   url:"https://nickohold.github.io/",
+   url:"https://nickohold.github.io",
   //  baseUrl:"/ops-docs/",
 
   // For no header links in the top nav bar -> headerLinks: [],

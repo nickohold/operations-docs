@@ -5,13 +5,8 @@ jobs:
       - image: debian:stretch
     branches:
       ignore: gh-pages
-          steps:
-      - checkout
-
-      - run:
-          name: Greeting
-          command: echo Hello, world.
-          # command: yarn run build
+    steps:
+      - run: echo "Skipping tests on gh-pages branch"
 
       - run:
           name: Print the Current Time

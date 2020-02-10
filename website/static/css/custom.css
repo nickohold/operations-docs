@@ -51,6 +51,34 @@ padding-top:0;
 .nav-footer .sitemap .nav-home{
     height: 50px;
 }
+ol{
+    list-style-type:decimal;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: '30px';
+}
+ol >li>ol{
+    list-style-type:upper-alpha;
+    font-weight: lighter;
+    font-size:15px;
+}
+ol >li>ol>li>ol{
+    list-style-type:disc;
+}
+
+#new_integration_email{
+    display:block;
+    position:absolute;
+    width:70%;
+    height:40%;
+    left:0;
+    right:0;
+    padding:0;
+    margin:auto;
+    margin-top:30px;
+    border:10px lightcyan groove
+}
+
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 
