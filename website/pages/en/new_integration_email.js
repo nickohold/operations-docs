@@ -44,14 +44,14 @@ class MyPage extends React.Component {
                   </li>
                 </ol>
               </li>
-              <li>Input the endpoint to the [EndPoint table|https://docs.google.com/spreadsheets/d/1Gld7mJzM8ALE3uyyGXj84jY4YavCKZjaid7RRYk22Fk/edit#gid=0]: 
+              <li>Input the endpoint to the <a href="https://docs.google.com/spreadsheets/d/1Gld7mJzM8ALE3uyyGXj84jY4YavCKZjaid7RRYk22Fk/edit#gid=0">EndPoint table</a> 
                 <ol type='1'>
                     <li>If Display- mark the Auctioneer settings “Interstitial”.</li>
                     <li>If RV- NO auctioneer traffic at first only “simharif”- NO marking in auctioneer settings.</li>
                 </ol>
               </li>
               <li>Once the test is underway, pull some responses and validate it is running properly, and the creative meets our (IS and SDK) requirements.</li>
-              <li>Check Discrepancy with client (article 2.c [here|https://docs.google.com/document/d/1KzGZDM8QwHtyTf6ldMDq49e-tV5n56HQjwZJCDgqjps/edit?ts=5e1c6e0a])</li>
+              <li>Check Discrepancy with client (article 2.c <a href="https://docs.google.com/document/d/1KzGZDM8QwHtyTf6ldMDq49e-tV5n56HQjwZJCDgqjps/edit?ts=5e1c6e0a">here</a>)</li>
               <li>If everything is alright, increase scale slowly over the next week, check discrepancy every 2 days. </li>
               <li>After the testing week, if no other issues arise, hand over to AM.</li>
           </ol>
@@ -69,5 +69,3 @@ return (
 MyPage.title = 'My Custom title';
 
 module.exports = MyPage;
-
-
