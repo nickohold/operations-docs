@@ -62,8 +62,7 @@
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Integration Spec.</h1></header><article><div><span><!-- Check the [documentation](https://docusaurus.io) for how to use Docusaurus. -->
 <h2><a class="anchor" aria-hidden="true" id="onboarding"></a><a href="#onboarding" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OnBoarding</h2>
-<p>Please go through the steps below, and if you have any question, please contact your ironsource POC.
-<br>The full onboarding process of a new bidder takes up to a week.
+<p>Please go through the steps below, and if you have any questions, please contact your ironsource POC.
 <br>
 <br>
 <br></p>
@@ -72,10 +71,10 @@
 <tr><th>Steps</th><th>Assignee</th></tr>
 </thead>
 <tbody>
-<tr><td><b>Preparation</b>: <br>Send your IronSource POC the following:<br>• Endpoint URL <br>• Location of your DC <br>• Your expiration time (between bid to imp) <br>• Filtering/special requirements you would like to apply to the traffic within the test period.</td><td>DSP</td></tr>
-<tr><td><b>Test:</b><br>IronSource will request you to set a test creative with 100% fill-rate. <br>We will then start sending low scale inventory (10 QPS) according to the targeting conditions applies in step 1.<br>* If the bidder does not return an ad, your IronSource POC will send you a request and ask you to check if there’s any parameter we need to change/add to receive a bid.</td><td>DSP + IronSource</td></tr>
-<tr><td><b>Compare Discrepancy</b>:<br>ironSource and the DSP will share the number of impressions and revenues counted in the first couple of days. Once numbers align on both ends, we will have a green light to scale QPS.</td><td>DSP + IronSource</td></tr>
-<tr><td><b>Scaling Traffic</b>:<br>ironSource will inquire about the full list of countries / Mobile OS’s and QPS limitations to open traffic where you require.</td><td>DSP + IronSource</td></tr>
+<tr><td><b>Preparation</b>: <br>Send your IronSource POC the following:<br>• Endpoint URL (Preferably, the EP that will be used for production) <br>• <a href="https://docs.google.com/forms/u/1/d/1WMnykiVEmaR6Of-xA-xMuwlrKuk_iJIw-mbA0IGwLRw/edit">Fill in the questionnaire</a> <br>• Filtering/special requirements you would like to apply to the traffic within the test period.</td><td>Bidder</td></tr>
+<tr><td><b>Test:</b><br>ironSource will start sending low scale inventory (10 QPS) according to the targeting conditions applied in step 1.<br>* If the bidder does not return an ad, your IronSource POC will send you a request and ask you to check if there’s any parameter we need to change/add to receive a bid.</td><td>Bidder + IronSource</td></tr>
+<tr><td><b>Compare Discrepancy</b>:<br>ironSource and Bidder will share the number of impressions and revenues counted in the first couple of days. Once numbers align on both ends, we will have a green light to scale QPS.</td><td>Bidder + IronSource</td></tr>
+<tr><td><b>Scaling Traffic</b>:<br>ironSource will inquire about the full list of countries / Mobile OS’s and QPS limitations to open traffic where you require.</td><td>Bidder + IronSource</td></tr>
 </tbody>
 </table>
 <h2><a class="anchor" aria-hidden="true" id="bid-request"></a><a href="#bid-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bid Request</h2>
@@ -88,9 +87,9 @@
 <tr><td>id</td><td>string</td><td>-</td><td>yes</td><td>A ironSource generated id. This id must be returned in the bid response object.</td></tr>
 <tr><td>imp</td><td>object</td><td>-</td><td>yes</td><td>ironSource supports one impression object per bid request. See Impression.</td></tr>
 <tr><td>at</td><td>int</td><td>1 or 2</td><td>yes</td><td>The auction type used. ironSource supports both first and second price auctions.</td></tr>
-<tr><td>app</td><td>object</td><td>-</td><td>no</td><td>The app object is used to describe game. See App.</td></tr>
+<tr><td>app</td><td>object</td><td>-</td><td>no</td><td>App description.</td></tr>
 <tr><td>device</td><td>object</td><td>-</td><td>yes</td><td>An object describing the device. See Device.</td></tr>
-<tr><td>tmax</td><td>int</td><td>Default: 140 ms</td><td>yes</td><td>Timeout value in milliseconds (depends on each GEO).</td></tr>
+<tr><td>tmax</td><td>int</td><td>Default: 140 ms</td><td>yes</td><td>Timeout value in milliseconds.</td></tr>
 <tr><td>bcat</td><td>string array</td><td>-</td><td>yes</td><td>Blocked advertiser categories using the IAB content categories. Refer to List 5.1.</td></tr>
 <tr><td>badv</td><td>string array</td><td>-</td><td>no</td><td>Block list of advertisers by their domains.</td></tr>
 <tr><td>regs</td><td>object</td><td>-</td><td>no</td><td>A Regs object (Section 3.2.18) that specifies any industry, legal, or governmental regulations in force for this request.</td></tr>
@@ -120,7 +119,7 @@
 <tr><th>Field</th><th>Type</th><th>Value</th><th>Always passed (when available)</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>mimes</td><td>string array</td><td>[“video/mp4”]</td><td>yes</td><td>Content mime types supported.</td></tr>
+<tr><td>mimes</td><td>string array</td><td>[&quot;video/mp4&quot;]</td><td>yes</td><td>Content mime types supported.</td></tr>
 <tr><td>minduration</td><td>int</td><td>1</td><td>yes</td><td>Minimum video ad duration in seconds.</td></tr>
 <tr><td>maxduration</td><td>int</td><td>62</td><td>yes</td><td>Maximum video ad duration in seconds.</td></tr>
 <tr><td>w</td><td>int</td><td>-</td><td>yes</td><td>Width of the video player in device independent pixels (DIPS).</td></tr>
@@ -146,7 +145,18 @@
 <tr><td>btype</td><td>int</td><td>-</td><td>Yes</td><td>Blocked banner ad types.</td></tr>
 </tbody>
 </table>
-<h3><a class="anchor" aria-hidden="true" id="5-app-object"></a><a href="#5-app-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. App Object</h3>
+<h3><a class="anchor" aria-hidden="true" id="5-format-object"></a><a href="#5-format-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Format Object</h3>
+<p>Under Video/Banner, This object represents an allowed size (i.e., height and width combination) or Flex Ad parameters for a banner impression. These are typically used in an array where multiple sizes are permitted.</p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Value</th><th>Always passed (when available)</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>w</td><td>integer</td><td>-</td><td>yes</td><td>Width in device independent pixels (DIPS).</td></tr>
+<tr><td>h</td><td>integer</td><td>-</td><td>yes</td><td>Height in device independent pixels (DIPS).</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="6-app-object"></a><a href="#6-app-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. App Object</h3>
 <table>
 <thead>
 <tr><th>Field</th><th>Type</th><th>Value</th><th>Always passed (when available)</th><th>Description</th></tr>
@@ -159,7 +169,7 @@
 <tr><td>cat</td><td>string array</td><td>-</td><td>no</td><td>Array of IAB content categories of the app if requested by partner.</td></tr>
 </tbody>
 </table>
-<h3><a class="anchor" aria-hidden="true" id="6-device-object"></a><a href="#6-device-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Device Object</h3>
+<h3><a class="anchor" aria-hidden="true" id="7-device-object"></a><a href="#7-device-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Device Object</h3>
 <table>
 <thead>
 <tr><th>Field</th><th>Type</th><th>Value</th><th>Always passed (when available)</th><th>Description</th></tr>
@@ -171,13 +181,13 @@
 <tr><td>ua</td><td>string</td><td>-</td><td>yes</td><td>Webview User Agent string.</td></tr>
 <tr><td>ip</td><td>string</td><td>-</td><td>yes</td><td>Device ip address.</td></tr>
 <tr><td>connectiont ype</td><td>int</td><td>-</td><td>no</td><td>Network connection type. Refer to List 5.20.</td></tr>
-<tr><td>geo</td><td>object</td><td>-</td><td>yes</td><td>Location of the device assumed to be the user’s current location. See Geo Object.</td></tr>
+<tr><td>geo</td><td>object</td><td>-</td><td>yes</td><td>Location of the device assumed to be the user's current location. See Geo Object.</td></tr>
 <tr><td>devicetype</td><td>int</td><td>-</td><td>yes</td><td>The general type of device. Refer to List 5.19.</td></tr>
-<tr><td>os</td><td>string</td><td>-</td><td>yes</td><td>Device operating system (e.g., “ios”, “android”).</td></tr>
-<tr><td>osv</td><td>string</td><td>-</td><td>yes</td><td>Device operating system version (e.g., “3.1.2”).</td></tr>
+<tr><td>os</td><td>string</td><td>-</td><td>yes</td><td>Device operating system (e.g., &quot;ios&quot;, &quot;android&quot;).</td></tr>
+<tr><td>osv</td><td>string</td><td>-</td><td>yes</td><td>Device operating system version (e.g., &quot;3.1.2&quot;).</td></tr>
 </tbody>
 </table>
-<h3><a class="anchor" aria-hidden="true" id="7-geo-object"></a><a href="#7-geo-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Geo Object</h3>
+<h3><a class="anchor" aria-hidden="true" id="8-geo-object"></a><a href="#8-geo-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8. Geo Object</h3>
 <table>
 <thead>
 <tr><th>Field</th><th>Type</th><th>Value</th><th>Always passed (when available)</th><th>Description</th></tr>
@@ -196,226 +206,432 @@
 <tr><td>ext</td><td>object</td><td>-</td><td>Yes</td><td>Placeholder for exchange-specific extensions to OpenRTB.</td></tr>
 </tbody>
 </table>
-<h3><a class="anchor" aria-hidden="true" id="8-sample-vast-bid-request"></a><a href="#8-sample-vast-bid-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8. Sample VAST Bid Request</h3>
+<h3><a class="anchor" aria-hidden="true" id="9-sample-vast-bid-request"></a><a href="#9-sample-vast-bid-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9. Sample VAST Bid Request</h3>
 <pre><code class="hljs css language-json">{
+
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1543191600023602635_ip-172-31-13-147_ffbff0e0-f110-11e8-97e4-553af9e959cb"</span>,
+
     <span class="hljs-attr">"imp"</span>: [
+
     {
+
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"imp_1543191600023602635_ip-172-31-13-147_ffbff0e0-f110-11e8-97e4- 553 af9e959cb "</span>,
+
         <span class="hljs-attr">" video "</span>:
+
         {
+
             <span class="hljs-attr">"mimes"</span>: [<span class="hljs-string">"video/mp4"</span>],
+
             <span class="hljs-attr">"minduration"</span>: <span class="hljs-number">1</span>,
+
             <span class="hljs-attr">"maxduration"</span>: <span class="hljs-number">62</span>,
+
             <span class="hljs-attr">"protocols"</span>: [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>],
+
             <span class="hljs-attr">"w"</span>: <span class="hljs-number">480</span>,
+
             <span class="hljs-attr">"h"</span>: <span class="hljs-number">320</span>,
+
             <span class="hljs-attr">"placement"</span>: <span class="hljs-number">5</span>,
+
             <span class="hljs-attr">"skip"</span>: <span class="hljs-number">0</span>,
+
             <span class="hljs-attr">"playbackmethod"</span>: [<span class="hljs-number">5</span>],
+
             <span class="hljs-attr">"pos"</span>: <span class="hljs-number">7</span>
+
         },
+
         <span class="hljs-attr">"bidfloor"</span>: <span class="hljs-number">37.5</span>,
+
         <span class="hljs-attr">"bidfloorcur"</span>: <span class="hljs-string">"USD"</span>,
+
         <span class="hljs-attr">"secure"</span>: <span class="hljs-number">1</span>,
+
         <span class="hljs-attr">"ext"</span>:
+
         {
+
             <span class="hljs-attr">"viewabilityvendors"</span>: [<span class="hljs-string">"moat.com"</span>]
+
         }
+
     }],
+
     <span class="hljs-attr">"app"</span>:
+
     {
+
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"com.wb.shadowofwar"</span>,
+
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Middle-earth: Shadow of War"</span>,
+
         <span class="hljs-attr">"bundle"</span>: <span class="hljs-string">"com.wb.shadowofwar"</span>,
+
         <span class="hljs-attr">"storeurl"</span>: <span class="hljs-string">"https://play.google.com/store/apps/details?id=com.wb.shadowofwar"</span>,
+
         <span class="hljs-attr">"cat"</span>: [<span class="hljs-string">"IAB9"</span>],
+
         <span class="hljs-attr">"publisher"</span>:
+
         {
+
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"155479"</span>,
+
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Warner Bros."</span>
+
         }
+
     },
+
     <span class="hljs-attr">"device"</span>:
+
     {
+
         <span class="hljs-attr">"ua"</span>: <span class="hljs-string">"Mozilla/5.0 (Linux; Android 9; Pixel 2 Build/PQ1A.181105.017.A1; wv) AppleWebKit / 537.36(KHTML, like Gecko) Version / 4.0 Chrome / 70.0 .3538 .80 Mobile Safari / 537.36 "</span>,
+
         <span class="hljs-attr">"geo"</span>:
+
         {
+
             <span class="hljs-attr">"lat"</span>: <span class="hljs-number">39.6349</span>,
+
             <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-75.6993</span>,
+
             <span class="hljs-attr">"type"</span>: <span class="hljs-number">2</span>,
+
             <span class="hljs-attr">"ipservice"</span>: <span class="hljs-number">3</span>,
+
             <span class="hljs-attr">"country"</span>: <span class="hljs-string">"USA"</span>,
+
             <span class="hljs-attr">"region"</span>: <span class="hljs-string">"DE"</span>,
+
             <span class="hljs-attr">"metro"</span>: <span class="hljs-string">"504"</span>,
+
             <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Newark"</span>,
+
             <span class="hljs-attr">"zip"</span>: <span class="hljs-string">"19702"</span>
+
         },
+
         <span class="hljs-attr">"ip"</span>: <span class="hljs-string">"174.200.31.209"</span>,
+
         <span class="hljs-attr">"devicetype"</span>: <span class="hljs-number">4</span>,
+
         <span class="hljs-attr">"make"</span>: <span class="hljs-string">"Google"</span>,
+
         <span class="hljs-attr">"model"</span>: <span class="hljs-string">"Pixel 2"</span>,
+
         <span class="hljs-attr">"os"</span>: <span class="hljs-string">"Android"</span>,
+
         <span class="hljs-attr">"osv"</span>: <span class="hljs-string">"..0"</span>,
+
         <span class="hljs-attr">"connectiontype"</span>: <span class="hljs-number">3</span>,
+
         <span class="hljs-attr">"ifa"</span>: <span class="hljs-string">"4f6d1ace-92bc-44a8-bef1-f9008299844a"</span>
+
     },
+
     <span class="hljs-attr">"at"</span>: <span class="hljs-number">2</span>,
+
     <span class="hljs-attr">"bcat"</span>: [<span class="hljs-string">"IAB11-4"</span>, <span class="hljs-string">"IAB25-2"</span>, <span class="hljs-string">"IAB25-3"</span>, <span class="hljs-string">"IAB25-3"</span>, <span class="hljs-string">"IAB25-5"</span>, <span class="hljs-string">"IAB26"</span>, <span class="hljs-string">"IAB26-1"</span>, <span class="hljs-string">"IAB26-3"</span>, <span class="hljs-string">"IAB7-39"</span>, <span class="hljs-string">"IAB8-18"</span>, <span class="hljs-string">"IAB8-5"</span>, <span class="hljs-string">"IAB9-9"</span>, <span class="hljs-string">"IAB9-7"</span>],
+
     <span class="hljs-attr">"badv"</span>: [<span class="hljs-string">"app.legobatman.com"</span>, <span class="hljs-string">"scoobydoo.com"</span>]
 }
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="9-sample-banner-bid-request"></a><a href="#9-sample-banner-bid-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9. Sample Banner Bid Request</h3>
+<h3><a class="anchor" aria-hidden="true" id="10-sample-banner-bid-request"></a><a href="#10-sample-banner-bid-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10. Sample Banner Bid Request</h3>
 <pre><code class="hljs css language-json">{
+
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1543191072421510197_ip-172-31-13-147_c86cb110-f10f-11e8-9624- f927672b827b"</span>,
+
     <span class="hljs-attr">"imp"</span>: [
+
     {
+
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"opp_100"</span>,
+
         <span class="hljs-attr">"banner"</span>:
+
         {
+
             <span class="hljs-attr">"w"</span>: <span class="hljs-number">320</span>,
+
             <span class="hljs-attr">"h"</span>: <span class="hljs-number">480</span>,
+
             <span class="hljs-attr">"btype"</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>],
+
             <span class="hljs-attr">"battr"</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">14</span>, <span class="hljs-number">10</span>],
+
             <span class="hljs-attr">"pos"</span>: <span class="hljs-number">1</span>,
+
             <span class="hljs-attr">"api"</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>]
+
         },
+
         <span class="hljs-attr">"instl"</span>: <span class="hljs-number">1</span>,
+
         <span class="hljs-attr">"bidfloor"</span>: <span class="hljs-number">6.6</span>,
+
         <span class="hljs-attr">"bidfloorcur"</span>: <span class="hljs-string">"USD"</span>,
+
         <span class="hljs-attr">"secure"</span>: <span class="hljs-number">1</span>
+
     }],
+
     <span class="hljs-attr">"app"</span>:
+
     {
+
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"143489"</span>,
+
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Word Crossy - A crossword game"</span>,
+
         <span class="hljs-attr">"bundle"</span>: <span class="hljs-string">"com.fillword.cross.wordmind.en"</span>,
+
         <span class="hljs-attr">"storeurl"</span>: <span class="hljs-string">"https://play.google.com/store/apps/details?id=com.fillword.cross.wordmind.en"</span>,
+
         <span class="hljs-attr">"cat"</span>: [<span class="hljs-string">"IAB9"</span>],
+
         <span class="hljs-attr">"publisher"</span>:
+
         {
+
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"190949"</span>,
+
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"HONG KONG FOTOABLE TECHNOLOGY LIMITED"</span>
+
         },
+
         <span class="hljs-attr">"keywords"</span>: <span class="hljs-string">"word crossword"</span>
+
     },
+
     <span class="hljs-attr">"device"</span>:
+
     {
+
         <span class="hljs-attr">"ua"</span>: <span class="hljs-string">"Mozilla/5.0 (Linux; Android 8.0.0; BND-L24 Build/HONORBND-L24; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/70.0.3538.110 Mobile Safari/537.36"</span>,
+
         <span class="hljs-attr">"geo"</span>:
+
         {
+
             <span class="hljs-attr">"lat"</span>: <span class="hljs-number">32.7787</span>,
+
             <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-96.8217</span>,
+
             <span class="hljs-attr">"type"</span>: <span class="hljs-number">2</span>,
+
             <span class="hljs-attr">"ipservice"</span>: <span class="hljs-number">3</span>,
+
             <span class="hljs-attr">"country"</span>: <span class="hljs-string">"USA"</span>,
+
             <span class="hljs-attr">"region"</span>: <span class="hljs-string">"TX"</span>,
+
             <span class="hljs-attr">"metro"</span>: <span class="hljs-string">"623"</span>,
+
             <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Dallas"</span>,
+
             <span class="hljs-attr">"zip"</span>: <span class="hljs-string">"75270"</span>
+
         },
+
         <span class="hljs-attr">"ip"</span>: <span class="hljs-string">"107.77.197.194"</span>,
+
         <span class="hljs-attr">"make"</span>: <span class="hljs-string">"Generic_Android"</span>,
+
         <span class="hljs-attr">"model"</span>: <span class="hljs-string">"BND-L24"</span>,
+
         <span class="hljs-attr">"os"</span>: <span class="hljs-string">"Android"</span>,
+
         <span class="hljs-attr">"osv"</span>: <span class="hljs-string">"8.0.0"</span>,
+
         <span class="hljs-attr">"connectiontype"</span>: <span class="hljs-number">3</span>,
+
         <span class="hljs-attr">"ifa"</span>: <span class="hljs-string">"25da5cfa-9743-4268-a21e-2374cae1bfa7"</span>
+
     },
+
     <span class="hljs-attr">"user"</span>:
+
     {
+
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"25da5cfa-9743-4268-a21e-2374cae1bfa7"</span>,
+
         <span class="hljs-attr">"ext"</span>:
+
         {}
+
     },
+
     <span class="hljs-attr">"tmax"</span>: <span class="hljs-number">140</span>,
+
     <span class="hljs-attr">"wseat"</span>: [<span class="hljs-string">"364"</span>],
+
     <span class="hljs-attr">"bcat"</span>: [<span class="hljs-string">"IAB11-4"</span>, <span class="hljs-string">"IAB25-2"</span>, <span class="hljs-string">"IAB25-3"</span>, <span class="hljs-string">"IAB25-3"</span>, <span class="hljs-string">"IAB25-5"</span>, <span class="hljs-string">"IAB26"</span>, <span class="hljs-string">"IAB26-1"</span>, <span class="hljs-string">"IAB26-3"</span>, <span class="hljs-string">"IAB7-39"</span>, <span class="hljs-string">"IAB8-18"</span>, <span class="hljs-string">"IAB8-5"</span>, <span class="hljs-string">"IAB9-9"</span>, <span class="hljs-string">"IAB9-7"</span>],
+
     <span class="hljs-attr">"badv"</span>: [<span class="hljs-string">"randomlogicgames.com"</span>, <span class="hljs-string">"MatchaSauceLLC.com"</span>]
+
 }
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="10-sample-deal-bid-request"></a><a href="#10-sample-deal-bid-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10. Sample Deal Bid Request</h3>
+<h3><a class="anchor" aria-hidden="true" id="11-sample-deal-bid-request"></a><a href="#11-sample-deal-bid-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11. Sample Deal Bid Request</h3>
 <pre><code class="hljs css language-json">{
+
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1543191000285646996_ip-172-31-13-147_9d6733f0-f10f-11e8-92b7- e1f2fd29b805_bidswitch_b"</span>,
+
     <span class="hljs-attr">"imp"</span>: [
+
     {
+
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"opp_100"</span>,
+
         <span class="hljs-attr">"banner"</span>:
+
         {
+
             <span class="hljs-attr">"w"</span>: <span class="hljs-number">320</span>,
+
             <span class="hljs-attr">"h"</span>: <span class="hljs-number">480</span>,
+
             <span class="hljs-attr">"btype"</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>],
+
             <span class="hljs-attr">"battr"</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">14</span>, <span class="hljs-number">10</span>],
+
             <span class="hljs-attr">"pos"</span>: <span class="hljs-number">1</span>,
+
             <span class="hljs-attr">"api"</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>]
+
         },
+
         <span class="hljs-attr">"pmp"</span>:
+
         {
+
             <span class="hljs-attr">"private_auction"</span>: <span class="hljs-number">1</span>,
+
             <span class="hljs-attr">"deals"</span>: [
+
             {
+
                 <span class="hljs-attr">"id"</span>: <span class="hljs-string">"60109d86c756e1e221b63f423994356c"</span>,
+
                 <span class="hljs-attr">"bidfloor"</span>: <span class="hljs-number">1</span>,
+
                 <span class="hljs-attr">"bidfloorcur"</span>: <span class="hljs-string">"USD"</span>,
+
                 <span class="hljs-attr">"at"</span>: <span class="hljs-number">2</span>,
+
                 <span class="hljs-attr">"wseat"</span>: [<span class="hljs-string">"178"</span>]
+
             }]
+
         },
+
         <span class="hljs-attr">"instl"</span>: <span class="hljs-number">1</span>,
+
         <span class="hljs-attr">"bidfloor"</span>: <span class="hljs-number">0.894</span>,
+
         <span class="hljs-attr">"bidfloorcur"</span>: <span class="hljs-string">"USD"</span>,
+
         <span class="hljs-attr">"secure"</span>: <span class="hljs-number">1</span>
+
     }],
+
     <span class="hljs-attr">"app"</span>:
+
     {
+
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"174953"</span>,
+
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"My Talking Tom 2"</span>,
+
         <span class="hljs-attr">"bundle"</span>: <span class="hljs-string">"com.outfit7.mytalkingtom2"</span>,
+
         <span class="hljs-attr">"storeurl"</span>: <span class="hljs-string">"https://play.google.com/store/apps/details?id=com.outfit7.mytalkingtom2"</span>,
+
         <span class="hljs-attr">"cat"</span>: [<span class="hljs-string">"IAB9"</span>],
+
         <span class="hljs-attr">"publisher"</span>:
+
         {
+
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"151409"</span>,
+
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Outfit7 Limited"</span>
+
         }
+
     },
+
     <span class="hljs-attr">"device"</span>:
+
     {
+
         <span class="hljs-attr">"ua"</span>: <span class="hljs-string">"Mozilla/5.0 (Linux; Android 6.0.1; SM-G532M Build/MMB29T; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/70.0.3538.80 Mobile Safari/537.36"</span>,
+
         <span class="hljs-attr">"geo"</span>:
+
         {
+
             <span class="hljs-attr">"lat"</span>: <span class="hljs-number">-15.1406</span>,
+
             <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-54.195</span>,
+
             <span class="hljs-attr">"type"</span>: <span class="hljs-number">2</span>,
+
             <span class="hljs-attr">"ipservice"</span>: <span class="hljs-number">3</span>,
+
             <span class="hljs-attr">"country"</span>: <span class="hljs-string">"BRA"</span>,
+
             <span class="hljs-attr">"region"</span>: <span class="hljs-string">"14"</span>,
+
             <span class="hljs-attr">"metro"</span>: <span class="hljs-string">"0"</span>,
+
             <span class="hljs-attr">"zip"</span>: <span class="hljs-string">"78850"</span>
+
         },
+
         <span class="hljs-attr">"ip"</span>: <span class="hljs-string">"177.91.236.3"</span>,
+
         <span class="hljs-attr">"make"</span>: <span class="hljs-string">"Samsung"</span>,
+
         <span class="hljs-attr">"model"</span>: <span class="hljs-string">"SM-G532M"</span>,
+
         <span class="hljs-attr">"os"</span>: <span class="hljs-string">"Android"</span>,
+
         <span class="hljs-attr">"osv"</span>: <span class="hljs-string">"6.0.1"</span>,
+
         <span class="hljs-attr">"connectiontype"</span>: <span class="hljs-number">2</span>,
+
         <span class="hljs-attr">"ifa"</span>: <span class="hljs-string">"9eed2a3f-2f4f-42d5-8073-f70f9e87586e"</span>
+
     },
+
     <span class="hljs-attr">"user"</span>:
+
     {
+
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"9eed2a3f-2f4f-42d5-8073-f70f9e87586e"</span>,
+
         <span class="hljs-attr">"ext"</span>:
+
         {}
+
     },
+
     <span class="hljs-attr">"tmax"</span>: <span class="hljs-number">140</span>,
+
     <span class="hljs-attr">"wseat"</span>: [<span class="hljs-string">"364"</span>],
+
     <span class="hljs-attr">"bcat"</span>: [<span class="hljs-string">"IAB11-4"</span>, <span class="hljs-string">"IAB25-2"</span>, <span class="hljs-string">"IAB25-3"</span>, <span class="hljs-string">"IAB25-3"</span>, <span class="hljs-string">"IAB25-5"</span>, <span class="hljs-string">"IAB26"</span>, <span class="hljs-string">"IAB26-1"</span>, <span class="hljs-string">"IAB26-3"</span>, <span class="hljs-string">"IAB7-39"</span>, <span class="hljs-string">"IAB8-18"</span>, <span class="hljs-string">"IAB8-5"</span>, <span class="hljs-string">"IAB9-9"</span>, <span class="hljs-string">"IAB9-7"</span>],
+
     <span class="hljs-attr">"badv"</span>: [<span class="hljs-string">"anastasiadate.com"</span>]
+
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="bid-response"></a><a href="#bid-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bid Response</h2>
-<p>After your application receives the bid request to the ironSource dedicated endpoint, your application must return a bid response or indicate a no-bid.
-<br></p>
+<p>After your application receives the bid request to the ironSource dedicated endpoint, your application must return a bid response or indicate a no-bid.</p>
 <h3><a class="anchor" aria-hidden="true" id="1-bid-response-object"></a><a href="#1-bid-response-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Bid Response Object</h3>
 <table>
 <thead>
@@ -426,7 +642,7 @@
 <tr><td>cur</td><td>string</td><td>USD only</td><td>required</td><td>ironSource only supports USD, any other ISO currency code will result in the bid response being ignored.</td></tr>
 <tr><td>bidid</td><td>string</td><td>-</td><td>recommended</td><td>Bidder generated response ID to assist with logging/tracking.</td></tr>
 <tr><td>nbr</td><td>int</td><td>-</td><td>recommended</td><td>Reason for not bidding. Refer to List 5.22 in OpenRTB 2.3 Spec.</td></tr>
-<tr><td>seatbid</td><td>object array</td><td>-</td><td>required</td><td>Multiple seatbid objects are allowed in a response, however, ironSource currently only uses one seatbid object.<br><br>The seatbid object chosen will contain:<br>bid.id = impression.id</td></tr>
+<tr><td>seatbid</td><td>object array</td><td>-</td><td>required</td><td>Multiple seatbid objects are allowed in a response, however, ironSource currently only uses one seatbid object. The seatbid object chosen will contain:bid.id = impression.id</td></tr>
 </tbody>
 </table>
 <h3><a class="anchor" aria-hidden="true" id="2-seat-bid-object"></a><a href="#2-seat-bid-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Seat Bid Object</h3>
@@ -435,7 +651,7 @@
 <tr><th>Field</th><th>Type</th><th>Value</th><th>Requirement</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>bid</td><td>object array</td><td>-</td><td>required</td><td>ironSource expects at least ond bid.</td></tr>
+<tr><td>bid</td><td>object array</td><td>-</td><td>required</td><td>ironSource expects at least one bid.</td></tr>
 <tr><td>seat</td><td>string</td><td>-</td><td>required</td><td>Buyers will receive their seat id during the onboarding process.</td></tr>
 </tbody>
 </table>
@@ -448,12 +664,12 @@
 <tr><td>id</td><td>string</td><td>-</td><td>required</td><td>Bidder generated bid ID to assist with logging/tracking.</td></tr>
 <tr><td>impid</td><td>string</td><td>-</td><td>recommended</td><td>Id of the impression to which this bid applies. This value will match the impression id provided in the bid request.</td></tr>
 <tr><td>price</td><td>float</td><td>&gt;0</td><td>required</td><td>Bid price in CPM. A value that is equal to, or less than zero will be ignored.</td></tr>
-<tr><td>nurl</td><td>string</td><td>-</td><td>recommended</td><td>Impression/Win notice URL called by ironSource if the bid wins and serves (indicative of a billable ad); replace ${AUCTION_PRICE} macro to pass clear price.</td></tr>
-<tr><td>burl</td><td>string</td><td>-</td><td>recommended</td><td>Billing notice URL called by the exchange when a winning bid becomes billable based on exchange- specific business policy (e.g., typically delivered, viewed, etc.).</td></tr>
+<tr><td>nurl</td><td>string</td><td>-</td><td>recommended</td><td>Win notice URL called by the exchange when the bid wins the auction (not necessarily indicative of a delivered, viewed, or billable ad).  When burl isn't present, the nurl will replace it, and report Billing notice.</td></tr>
+<tr><td>burl</td><td>string</td><td>-</td><td>recommended</td><td>Billing notice URL called by the exchange when a winning bid becomes billable based on exchange.</td></tr>
 <tr><td>cid</td><td>string</td><td></td><td>recommended</td><td>Campaign ID to assist with ad quality checking.</td></tr>
 <tr><td>crid</td><td>string</td><td>-</td><td>recommended</td><td>Creative ID to assist with ad quality checking.</td></tr>
 <tr><td>adm</td><td>string</td><td>-</td><td>required</td><td>Required means of conveying ad markup in case the bid wins.</td></tr>
-<tr><td>adomain</td><td>string array</td><td>-</td><td>required</td><td>Advertiser domain for blacklist checking (e.g., “ford.com”). This can be an array of for the case of rotating creatives.</td></tr>
+<tr><td>adomain</td><td>string array</td><td>-</td><td>required</td><td>Advertiser domain for blacklist checking (e.g., &quot;ford.com&quot;). This can be an array of for the case of rotating creatives.</td></tr>
 <tr><td>attr</td><td>int array</td><td>-</td><td>recommended</td><td>Set of attributes describing the creative. Refer to List 5.3.</td></tr>
 <tr><td>w</td><td>int</td><td>-</td><td>required</td><td>Width of the creative in device independent pixels (DIPS).</td></tr>
 <tr><td>h</td><td>int</td><td>-</td><td>required</td><td>Height of the creative in device independent pixels (DIPS).</td></tr>
@@ -462,64 +678,104 @@
 </table>
 <h3><a class="anchor" aria-hidden="true" id="4-sample-vast-bid-response"></a><a href="#4-sample-vast-bid-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Sample Vast Bid Response:</h3>
 <pre><code class="hljs css language-json">{
+
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1543190416705343377_ip-172-31-13-147_41965ed0-f10e-11e8-b7cd- fd40aa7b8b5f"</span>,
+
     <span class="hljs-attr">"seatbid"</span>: [
+
     {
+
         <span class="hljs-attr">"bid"</span>: [
+
         {
+
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"opp_100"</span>,
+
             <span class="hljs-attr">"impid"</span>: <span class="hljs-string">"opp_100"</span>,
+
             <span class="hljs-attr">"price"</span>: <span class="hljs-number">15</span>,
+
             <span class="hljs-attr">"adm"</span>: <span class="hljs-string">"&lt;VASTversion='3.0'&gt;&lt;Adid='1d3c1443-07d2-4043-8fc6-45aaccf72beb'&gt;&lt;Wrapper&gt;&lt;AdSystemversion='1.0'&gt;DEMO&lt;/AdSystem&gt;&lt;VASTAdTagURI&gt;&lt;![CDATA[https://vast.extremereach.io/vast?line_item=14672907&amp;subid1=novpaid&amp;er_ap=0&amp;er_ar=0&amp;ba_cb=[474676]]]&gt;&lt;/VASTAdTagURI&gt;&lt;Error&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=error&amp;vec=[ERRORCODE]&amp;ast=[ASSETURI]&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Error&gt;&lt;Impression&gt;&lt;![CDATA[https://use-tor.adsrvr.org/bid/feedback/ironsource?iid=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;crid=aqgwb3x7&amp;wp=${AUCTION_PRICE}&amp;aid=opp_100&amp;wpc=USD&amp;sfe=e32b790&amp;puid=&amp;tdid=&amp;pid=40xae7z&amp;ag=ehk4pr5&amp;sig=LSXFVVRx4AHqO5lNjSV13qG7NrjK7UPj1dKipRdQ8ng.&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;svbttd=1&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;rlangs=01&amp;mlang=&amp;svpid=37151&amp;did=&amp;rcxt=InApp&amp;lat=34.011600&amp;lon=-118.341103&amp;tmpc=22.59&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;vp=0&amp;osi=&amp;osv=&amp;bv=1&amp;bp=15&amp;mk=Apple&amp;mdl=iPhone&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;atst=0]]&gt;&lt;/Impression&gt;&lt;Impression&gt;&lt;![CDATA[https://tracker.samplicio.us/tracker/aba155f7-de31-4d70-8232-4cfc08f3f9da/pixel.gif?sid=1094930513&amp;pid=6b3gxrn&amp;crid=aqgwb3x7&amp;device_id=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;cachebuster=453737]]&gt;&lt;/Impression&gt;&lt;Impression&gt;&lt;![CDATA[https://pixel.adsafeprotected.com/?anId=923116&amp;advId=2bhpgf0&amp;campId=6b3gxrn&amp;chanId=ehk4pr5&amp;placementId=aqgwb3x7&amp;pubId=&amp;bidurl=1094930513&amp;uId=null&amp;impId=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;planId=ironsource&amp;adsafe_par]]&gt;&lt;/Impression&gt;&lt;Creatives&gt;&lt;CreativeAdID='aqgwb3x7'&gt;&lt;Linear&gt;&lt;Icons&gt;&lt;Iconprogram='AdChoices' width='77' height='15' xPosition='right' yPosition='bottom'&gt;&lt;StaticResource creativeType='image/png'&gt;&lt;![CDATA[https://choices.trustarc.com/get?name=admarker-full-tl.png]]&gt;&lt;/StaticResource&gt;&lt;IconClicks&gt;&lt;IconClickThrough&gt;&lt;![CDATA[https://preferences-mgr.trustarc.com/?pid=tradedesk01&amp;aid=tradedesk01&amp;cid=6b3gxrn_ehk4pr5_aqgwb3x7&amp;width=640&amp;height=480]]&gt;&lt;/IconClickThrough&gt;&lt;/IconClicks&gt;&lt;IconViewTracking&gt;&lt;![CDATA[https://choices-or.trustarc.com/cap?pid=tradedesk01&amp;aid=tradedesk01&amp;cid=6b3gxrn_ehk4pr5_aqgwb3x7&amp;w=640&amp;h=480]]&gt;&lt;/IconViewTracking&gt;&lt;/Icon&gt;&lt;/Icons&gt;&lt;TrackingEvents&gt;&lt;Trackingevent='creativeView'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=creativeView&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='start'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=start&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0&amp;ast=[ASSETURI]]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='midpoint'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=midpoint&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='firstQuartile'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=firstQuartile&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='thirdQuartile'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=thirdQuartile&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='complete'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=complete&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='mute'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=mute&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='unmute'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=unmute&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='pause'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=pause&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='rewind'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=rewind&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='resume'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=resume&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='fullscreen'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=fullscreen&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='expand'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=expand&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='collapse'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=collapse&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='acceptInvitation'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=acceptInvitation&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='close'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=close&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='skip'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=skip&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;Trackingevent='exitFullscreen'&gt;&lt;![CDATA[https://insight.adsrvr.org/enduser/video/?ve=exitfullscreen&amp;imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=0&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;sfe=e32b790&amp;vp=0]]&gt;&lt;/Tracking&gt;&lt;/TrackingEvents&gt;&lt;VideoClicks&gt;&lt;ClickTracking&gt;&lt;![CDATA[https://insight.adsrvr.org/track/clk?imp=1d3c1443-07d2-4043-8fc6-45aaccf72beb&amp;ag=ehk4pr5&amp;sfe=e32b790&amp;sig=LSXFVVRx4AHqO5lNjSV13qG7NrjK7UPj1dKipRdQ8ng.&amp;crid=aqgwb3x7&amp;cf=506427&amp;fq=0&amp;td_s=1094930513&amp;rcats=app-4mg,app-qtf&amp;mcat=&amp;mste=&amp;mfld=2&amp;mssi=None&amp;mfsi=aote4uv89d&amp;sv=ironsource&amp;uhow=16&amp;agsa=&amp;rgco=United%20States&amp;rgre=California&amp;rgme=803&amp;rgci=Los%20Angeles&amp;rgz=90003&amp;dt=Mobile&amp;osf=iOS&amp;os=iOS112&amp;br=WebView&amp;svpid=37151&amp;rlangs=01&amp;mlang=&amp;did=&amp;rcxt=InApp&amp;tmpc=22.59&amp;vrtd=14,15&amp;osi=&amp;osv=&amp;daid=b0adb942-77dc-457f-9cb9-45ec7254ca72&amp;dnr=1&amp;vpb=Undeclared&amp;svsc=AllowEither&amp;dur=Ch8KB3dkeGR3ZDEQrMgDIhAI1bvdXRIJYmsyMDE2b2RjCjAKDGNoYXJnZS1hbGwtMSIgCP___________wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnMKOwoiY2hhcmdlLWFsbEludGVncmFsVmlkZW9CcmFuZFNhZmV0eSIVCOb__________wESCGludGVncmFsEKzIAw..&amp;crrelr=&amp;npt=&amp;dvps=Medium&amp;mk=Apple&amp;mdl=iPhone&amp;atst=0&amp;r=]]&gt;&lt;/ClickTracking&gt;&lt;/VideoClicks&gt;&lt;/Linear&gt;&lt;/Creative&gt;&lt;/Creatives&gt;&lt;/Wrapper&gt;&lt;/Ad&gt;&lt;/VAST&gt;"</span>,
+
             <span class="hljs-attr">"adomain"</span>: [<span class="hljs-string">"orchardvalleyharvest.com"</span>],
+
             <span class="hljs-attr">"cid"</span>: <span class="hljs-string">"6b3gxrn"</span>,
+
             <span class="hljs-attr">"crid"</span>: <span class="hljs-string">"aqgwb3x7"</span>
+
         }],
+
         <span class="hljs-attr">"seat"</span>: <span class="hljs-string">"2821"</span>
+
     }],
+
     <span class="hljs-attr">"cur"</span>: <span class="hljs-string">"USD"</span>
+
 }
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="7-sample-banner-bid-response"></a><a href="#7-sample-banner-bid-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Sample Banner Bid Response:</h3>
+<h3><a class="anchor" aria-hidden="true" id="5-sample-banner-bid-response"></a><a href="#5-sample-banner-bid-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Sample Banner Bid Response:</h3>
 <pre><code class="hljs css language-json">{
+
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1543190412223390473_ip-172-31-13-147_3eea9fc0-f10e-11e8-9915-1beb61037050"</span>,
+
     <span class="hljs-attr">"seatbid"</span>: [
+
     {
+
         <span class="hljs-attr">"bid"</span>: [
+
         {
+
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"46-45347979-4f8b-4547-8376-2cea2c3ac12a-1"</span>,
+
             <span class="hljs-attr">"impid"</span>: <span class="hljs-string">"opp_100"</span>,
+
             <span class="hljs-attr">"price"</span>: <span class="hljs-number">9.9906</span>,
+
             <span class="hljs-attr">"nurl"</span>: <span class="hljs-string">"https://gce-sc.aaaaaa.net/win_notice/ironsrc_bid?rid=n0c1mL5Fbo89Ly9SqtCooRxa2v_acn6HQGcc1qF pUCKJ41PVtmVVbRDp53nsBtx8OuEs4gjhayBfzEPy_vTS5KxQBAecYiBCG9yUDVn_5OIPNOcjgi C9RNH_l0- DZm8iummH7wz7gRcOVrO8eeIbkv__HAuYhnIoWjLjbE5uHozn5g9qkjoeJMc1ogFwtZyEEgNV fU_8hEh3Pcpr7gZ2VdV_W4bx0494jiy5sS2Jugelr-- wxzVJqlr2Mjoc0Dr5JMkxbJc7U1X8lHz7cGkLyp0O2u6XrwLcv5zTUUHaR4j5- 70zdLZ0b6h9xHxlKkr_gsTgk5C- i6HW3oBBsX7YmbdnKeLwZSps1SR5derRFkSMYiarGGQIL63vS_QsVYMPl1ukEjBA6d9jkC3sy3 Wlfv7CCsz5HThkE6izEa5ndHDZIpD_N7Z5YTaPxirQTv2-7EBpwF4L2SFD9szFbMUq5HehKHdA9z2Afbic3WDv2VsXNUT-qOV8PRyy5uqr6oc7YZ- 1CuWCo_wiTS23NwBRp_qmV5KhhwL- vs01gxiM_a8KD5a7ETouzRlLTmNohSsnBk2pESVkjdGIkd0h85oVNTL72e4Srfzm_W7K_n0kBC KEJWaK2jQNjT23bF8IFx0U7yUkFnbU2x8XTXgwDdVHdGXNedWDrMzmtSDfVUlr8l6vJQhQn MwLPgifMweWliuuSM8nrfXvkkMCAobyzEmDMW6QqRc6g- tjClx4xufFv1y7aYAjQ0PHJWl1PhpxMA35wQ4IXsepIW0KlwV4Qn1UBgiRebsg5AupMJfxG55rv tJb0DN7d5bP3gk0pt_AEdgaPcq2WrCvNFNZaZ8vb7M5D37algOVyFDsTjTSdIlum8TRgYBjO_- HqnZ7Q5sa1KxUy-Q_QFsELQ&amp;p=${AUCTION_PRICE}&amp;aid="</span>,
+
             <span class="hljs-attr">"adm"</span>: <span class="hljs-string">"&lt;script type='text/javascript' src='https://gce-sc.aaaaa.net/imp/${AUCTION_PRICE}/BSWhttps_A_B_Bads.us.criteo.com_Bdelivery_Br_Bajs.php_Cdid_R5bfb378becb1828f6315cbb87206dd00_Jz_R_I_WAUCTION__PRICE_X_Ju_R_U7CzFSJ2zcFmSd5MI6ZExctdUKKfziAYSv5Ux8ZisnlYEo_U3D_U7C_Jumip_R_U7CzFSJ2zcFmSdNnaf3j2hKnmp_U2BwR2MdpkiDiuxRtZPNEE_U3D_U7C_Jc1_RYO3Mzsx-no8gnyqJSTSGulogBpSQiCRN-6YMYiG-es--nz0mpByLlZLZwf__umpss51i6MLpCLpm__039cd-e8AeMF4QQ4KGTn8sVf__F0otJyOlwAEeBedTRPNgddYTGassdlXefBxo__Q2luAJBLeXkFpGVwV-mFmWhy3srZMWA2Vox9Lk5xXezTsIG9a9XAQW6vUnhW6l4nxeutyOq0yewoZZYZn01XjJFilQPvfylqre3vor__Oq8MRiOffe4NuerJvlQrdQXRiGykzbWVVwzRu-vmj9OpZW__QOH8UiyTRdSYlONNXK23yjSMngBMRHU0I69DoAiycsZZ__9jLMXXXtz7UWM__tNzp__7cH8hZXJZhYydVl1sWbrdM48KwBMtVnqateaxmTX-OjDLfms1WLsfc-jAJy0Y3-__-SEPTJFuYcQ_Jct0_R_I_WCLICK__URL_AURLENCODE_X/n0c1mL5Fbo89Ly9SqtCooRxa2v_acn6HQGcc1qFpUCKJ41PVtmVVbRDp53nsBtx8OuEs4gjhayBfzEPy_vTS5KxQBAecYiBCG9yUDVn_5OIPNOcjgiC9RNH_l0-DZm8iummH7wz7gRcOVrO8eeIbkv__HAuYhnIoWjLjbE5uHozn5g9qkjoeJMc1ogFwtZyEEgNVfU_8hEh3Pcpr7gZ2VdV_W4bx0494jiy5sS2Jugelr--wxzVJqlr2Mjoc0Dr5JMkxbJc7U1X8lHz7cGkLyp0O2u6XrwLcv5zTUUHaR4j5-70zdLZ0b6h9xHxlKkr_gsTgk5C-i6HW3oBBsX7YmbdnKeLwZSps1SR5derRFkSMYiarGGQIL63vS_QsVYMPl1ukEjBA6d9jkC3sy3Wlfv7CCsz5HThkE6izEa5ndHDZIpD_N7Z5YTaPxirQTv2-7EBpwF4L2SFD9szFbMUq5HehKHdA9z2Afbic3WDv2VsXNUT-qOV8PRyy5uqr6oc7YZ-1CuWCo_wiTS23NwBRp_qmV5KhhwL-vs01gxiM_a8KD5a7ETouzRlLTmNohSsnBk2pESVkjdGIkd0h85oVNTL72e4Srfzm_W7K_n0kBCKEJWaK2jQNjT23bF8IFx0U7yUkFnbU2x8XTXgwDdVHdGXNedWDrMzmtSDfVUlr8l6vJQhQnMwLPgifMweWliuuSM8nrfXvkkMCAobyzEmDMW6QqRc6g-tjClx4xufFv1y7aYAjQ0PHJWl1PhpxMA35wQ4IXsepIW0KlwV4Qn1UBgiRebsg5AupMJfxG55rvtJb0DN7d5bP3gk0pt_AEdgaPcq2WrCvNFNZaZ8vb7M5D37algOVyFDsTjTSdIlum8TRgYBjO_-HqnZ7Q5sa1KxUy-Q_QFsELQ/${CLICK_URL_ENC}'&gt;&lt;/script&gt;"</span>,
+
             <span class="hljs-attr">"adomain"</span>: [<span class="hljs-string">"journeys.com"</span>],
+
             <span class="hljs-attr">"cid"</span>: <span class="hljs-string">"143354"</span>,
+
             <span class="hljs-attr">"crid"</span>: <span class="hljs-string">"46_10304614"</span>,
+
             <span class="hljs-attr">"dealid"</span>: <span class="hljs-string">"20135c3f564b7bd7dd138a480427a69f"</span>,
+
             <span class="hljs-attr">"w"</span>: <span class="hljs-number">320</span>,
+
             <span class="hljs-attr">"h"</span>: <span class="hljs-number">480</span>,
+
             <span class="hljs-attr">"ext"</span>:
+
             {
+
                 <span class="hljs-attr">"agency_name"</span>: <span class="hljs-string">"Criteo"</span>
+
             }
+
         }],
+
         <span class="hljs-attr">"seat"</span>: <span class="hljs-string">"6"</span>
+
     }],
+
     <span class="hljs-attr">"cur"</span>: <span class="hljs-string">"USD"</span>
+
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="no-bid-response"></a><a href="#no-bid-response" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>No Bid Response</h2>
 <p>Bidders can respond with any of the following that will be considered a 'no bid'' within ironSource. It is important to use any of the following responses to explicitly signal you do not want to bid on the impression, otherwise the response may be interpreted as a timeout error.</p>
-<p><br>
-No bid (e.g. no demand, no interest in buying the impression):</p>
+<p>No bid (e.g. no demand, no interest in buying the impression):</p>
 <ul>
 <li>HTTP 204 No Content</li>
 <li>An empty JSON object: &quot;{}&quot;</li>
 <li>A well-formed no bid response (NBR): {&quot;id&quot;: &quot;1234567890&quot;, &quot;seatbid&quot;: []}
-<br>
 No bid due to an issue:</li>
 <li>A well-formed no bid response: {&quot;id&quot;: &quot;1234567890&quot;, &quot;seatbid&quot;: [], &quot;nbr&quot;: 2}</li>
-<li>The list of issue code that can be used for <b>nbr</b> can be found below:</li>
+<li>The list of issue code that can be used for nbr can be found below:</li>
 </ul>
 <table>
 <thead>
@@ -537,4 +793,4 @@ No bid due to an issue:</li>
 <tr><td>8</td><td>Unmatched User</td></tr>
 </tbody>
 </table>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/operations-docs/docs/ortb-fields"><span class="function-name-prevnext">IronSource ORTB request/response fields</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#onboarding">OnBoarding</a></li><li><a href="#bid-request">Bid Request</a><ul class="toc-headings"><li><a href="#1-request-object">1. Request Object</a></li><li><a href="#2-impression-object">2. Impression Object</a></li><li><a href="#3-video-object">3. Video Object</a></li><li><a href="#4-banner-object">4. Banner Object</a></li><li><a href="#5-app-object">5. App Object</a></li><li><a href="#6-device-object">6. Device Object</a></li><li><a href="#7-geo-object">7. Geo Object</a></li><li><a href="#8-sample-vast-bid-request">8. Sample VAST Bid Request</a></li><li><a href="#9-sample-banner-bid-request">9. Sample Banner Bid Request</a></li><li><a href="#10-sample-deal-bid-request">10. Sample Deal Bid Request</a></li></ul></li><li><a href="#bid-response">Bid Response</a><ul class="toc-headings"><li><a href="#1-bid-response-object">1. Bid Response Object</a></li><li><a href="#2-seat-bid-object">2. Seat Bid Object</a></li><li><a href="#3-bid-object">3. Bid Object</a></li><li><a href="#4-sample-vast-bid-response">4. Sample Vast Bid Response:</a></li><li><a href="#7-sample-banner-bid-response">7. Sample Banner Bid Response:</a></li></ul></li><li><a href="#no-bid-response">No Bid Response</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/operations-docs/docs/OnBoarding" class="nav-home" id="footer-image" target="_blank"><img id="footer-image" src="/operations-docs/img/is-video-white.png" alt="IronSource RTB Integration"/></a></section><div id="contact_us"><a href="mailto:nick.holden@ironsrc.com" id="contact_us">Contact us</a></div><section class="copyright">Copyright © 2020 IronSource LTD</section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/operations-docs/docs/ortb-fields"><span class="function-name-prevnext">IronSource ORTB request/response fields</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#onboarding">OnBoarding</a></li><li><a href="#bid-request">Bid Request</a><ul class="toc-headings"><li><a href="#1-request-object">1. Request Object</a></li><li><a href="#2-impression-object">2. Impression Object</a></li><li><a href="#3-video-object">3. Video Object</a></li><li><a href="#4-banner-object">4. Banner Object</a></li><li><a href="#5-format-object">5. Format Object</a></li><li><a href="#6-app-object">6. App Object</a></li><li><a href="#7-device-object">7. Device Object</a></li><li><a href="#8-geo-object">8. Geo Object</a></li><li><a href="#9-sample-vast-bid-request">9. Sample VAST Bid Request</a></li><li><a href="#10-sample-banner-bid-request">10. Sample Banner Bid Request</a></li><li><a href="#11-sample-deal-bid-request">11. Sample Deal Bid Request</a></li></ul></li><li><a href="#bid-response">Bid Response</a><ul class="toc-headings"><li><a href="#1-bid-response-object">1. Bid Response Object</a></li><li><a href="#2-seat-bid-object">2. Seat Bid Object</a></li><li><a href="#3-bid-object">3. Bid Object</a></li><li><a href="#4-sample-vast-bid-response">4. Sample Vast Bid Response:</a></li><li><a href="#5-sample-banner-bid-response">5. Sample Banner Bid Response:</a></li></ul></li><li><a href="#no-bid-response">No Bid Response</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/operations-docs/docs/OnBoarding" class="nav-home" id="footer-image" target="_blank"><img id="footer-image" src="/operations-docs/img/is-video-white.png" alt="IronSource RTB Integration"/></a></section><div id="contact_us"><a href="mailto:nick.holden@ironsrc.com" id="contact_us">Contact us</a></div><section class="copyright">Copyright © 2020 IronSource LTD</section></footer></div></body></html>
