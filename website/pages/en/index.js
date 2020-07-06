@@ -70,13 +70,16 @@ class HomeSplash extends React.Component {
 
     return (
       <SplashContainer>
-        {/* {/* <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} /> */}
+        {/* <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} /> */}
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            {/* <Button href="#try">Try It Out</Button> */}
-            {/* <Button href={'testing_pages.html'}>RTB integ flow - new integration</Button> */}
           </PromoSection>
+          <div id='buttons_holder'>
+            <Button href={'docs/OnBoarding'}><span>RTB Specs</span></Button>
+            {/* <Button href={'new_integration_email'}><span>New Integrations</span></Button> */}
+            <Button href={'mraid_specs'}><span>Mraid Specs</span></Button>
+          </div>
         </div> 
       </SplashContainer>
     );
@@ -208,6 +211,7 @@ class Index extends React.Component {
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
           <Features />
+          {/* <Button/> */}
           {/* <Showcase /> */}
         </div>
       </div>
@@ -216,3 +220,5 @@ class Index extends React.Component {
 }
 
 module.exports = Index;
+
+

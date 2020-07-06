@@ -1,7 +1,7 @@
 ---
 id: ortb-fields
 title: IronSource ORTB request/response fields
-sidebar_label: IronSource ORTB request/response fields
+sidebar_label: IronSource ORTB fields
 ---
 
 ## BidRequest

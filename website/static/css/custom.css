@@ -88,13 +88,41 @@ ol >li>ol>li>ol{
 #mraid_specs{
     width: 75%;
     height: 80%;
-    display:block;
+    display:inline-block;
     position: absolute;
     padding: 0;
     margin:auto;
 }
+#buttons_holder {
+    display: inline-flex;
+    line-height:unset;
+    height: 100px;
+    /* transition: 1s; */
+}
+a.button{
+    margin:10px;
+    width:200px;
+    height: 40px;
+    transition: 0.5s ;   
+}
+a.button:hover {
+    width: 250px;
+    height: 50px;
+}
 
-/* 
+a.button span{
+    position: relative;
+    margin: 0;
+    height: 100%;
+    line-height: 50%;
+    vertical-align: middle;
+}
+a.button:hover span{
+    line-height: 50%;
+    vertical-align: middle;
+}
+
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 
@@ -108,4 +136,4 @@ ol >li>ol>li>ol{
 }
 
 @media only screen and (min-width: 1500px) {
-} */
+} 

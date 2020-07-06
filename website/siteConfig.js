@@ -30,15 +30,16 @@ const siteConfig = {
   // organizationName: 'Ironsource',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
-   organizationName: 'nickohold',
-   url:"https://nickohold.github.io",
+   organizationName: 'brands-ops',
+   url:"https://brands-ops.github.io",
   //  baseUrl:"/ops-docs/",
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'OnBoarding',label:'Docs'},
+    {doc: 'OnBoarding',label:'RTB Specs'},
+    // {doc: 'ClicksXs', label: 'Clicks & X\'s'},
     // {page:'testing_pages.html', label:'Integration_flow'},
-    {page:'new_integration_email', label:'New Integrations'},
+    // {page:'new_integration_email', label:'New Integrations'},
     {page:'mraid_specs', label:'Mraid Specs'},
     // {blog: true, label: 'Blog'},
     // {href:'https://connect.ironsrc.com/api-docs', label: 'Connect API', external: true},
